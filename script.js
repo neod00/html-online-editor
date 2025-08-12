@@ -31,17 +31,21 @@ class HTMLEditor {
             foldGutter: true,
             gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
             extraKeys: {
+                'Ctrl-Enter': () => this.previewInNewTab(),
                 'Ctrl-S': () => this.saveToLocal(),
+                'Ctrl-O': () => this.loadFromLocal(),
+                'Ctrl-D': () => this.downloadFile(),
+                'Ctrl-Shift-F': () => this.formatCode(),
                 'F11': () => this.toggleFullscreen(),
-                'Alt-1': () => this.previewInNewTab(),
-                'Alt-2': () => this.formatCode(),
-                'Alt-3': () => this.clearEditor(),
-                'Alt-4': () => this.saveToLocal(),
-                'Alt-5': () => this.loadFromLocal(),
-                'Alt-6': () => this.uploadFile(),
-                'Alt-7': () => this.downloadFile(),
-                'Alt-8': () => this.loadSample(),
-                'Alt-9': () => this.toggleFullscreen()
+                'Ctrl-1': () => this.previewInNewTab(),
+                'Ctrl-2': () => this.formatCode(),
+                'Ctrl-3': () => this.clearEditor(),
+                'Ctrl-4': () => this.saveToLocal(),
+                'Ctrl-5': () => this.loadFromLocal(),
+                'Ctrl-6': () => this.uploadFile(),
+                'Ctrl-7': () => this.downloadFile(),
+                'Ctrl-8': () => this.loadSample(),
+                'Ctrl-9': () => this.toggleFullscreen()
             }
         });
 
@@ -52,6 +56,11 @@ class HTMLEditor {
             this.updatePreview();
             this.updateStats();
             this.autoSave();
+            
+            // 광고 표시 조건 재검사
+            if (window.checkAdDisplayConditions) {
+                window.checkAdDisplayConditions();
+            }
         });
 
         // 커서 위치 변경 이벤트
@@ -110,7 +119,9 @@ class HTMLEditor {
         // 창 크기 변경시 에디터 새로고침
         window.addEventListener('resize', () => {
             setTimeout(() => {
-                this.editor.refresh();
+                if (this.editor) {
+                    this.editor.refresh();
+                }
             }, 100);
         });
     }
@@ -124,26 +135,40 @@ class HTMLEditor {
     // 실시간 미리보기 업데이트
     updatePreview() {
         const htmlContent = this.editor.getValue();
-        const blob = new Blob([htmlContent], { type: 'text/html' });
-        const url = URL.createObjectURL(blob);
-        this.previewFrame.src = url;
-        
-        // 이전 URL 정리
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        if (htmlContent.trim()) {
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            this.previewFrame.src = url;
+            
+            // 이전 URL 정리
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        } else {
+            this.previewFrame.src = 'about:blank';
+        }
     }
 
     // 새 탭에서 미리보기
     previewInNewTab() {
         const htmlContent = this.editor.getValue();
-        const newWindow = window.open();
-        newWindow.document.write(htmlContent);
-        newWindow.document.close();
+        if (htmlContent.trim()) {
+            const newWindow = window.open();
+            newWindow.document.write(htmlContent);
+            newWindow.document.close();
+            this.showNotification('새 탭에서 미리보기가 열렸습니다.', 'success');
+        } else {
+            this.showNotification('미리보기할 내용이 없습니다.', 'warning');
+        }
     }
 
     // 코드 포맷팅
     formatCode() {
         try {
             const htmlContent = this.editor.getValue();
+            if (!htmlContent.trim()) {
+                this.showNotification('포맷팅할 내용이 없습니다.', 'warning');
+                return;
+            }
+            
             const formatted = html_beautify(htmlContent, {
                 indent_size: 2,
                 indent_char: ' ',
@@ -174,6 +199,7 @@ class HTMLEditor {
     clearEditor() {
         if (confirm('정말로 모든 내용을 지우시겠습니까?')) {
             this.editor.setValue('');
+            this.updatePreview();
             this.showNotification('내용이 지워졌습니다.', 'info');
         }
     }
@@ -181,6 +207,11 @@ class HTMLEditor {
     // 로컬 스토리지에 저장
     saveToLocal() {
         const content = this.editor.getValue();
+        if (!content.trim()) {
+            this.showNotification('저장할 내용이 없습니다.', 'warning');
+            return;
+        }
+        
         const timestamp = new Date().toISOString();
         const saveData = {
             content: content,
@@ -197,6 +228,7 @@ class HTMLEditor {
             try {
                 const data = JSON.parse(saveData);
                 this.editor.setValue(data.content);
+                this.updatePreview();
                 this.showNotification(`저장된 내용을 불러왔습니다. (${new Date(data.timestamp).toLocaleString()})`, 'success');
             } catch (error) {
                 this.showNotification('저장된 데이터를 읽는 중 오류가 발생했습니다.', 'error');
@@ -218,15 +250,23 @@ class HTMLEditor {
             const reader = new FileReader();
             reader.onload = (e) => {
                 this.editor.setValue(e.target.result);
+                this.updatePreview();
                 this.showNotification(`파일 "${file.name}"이 업로드되었습니다.`, 'success');
             };
             reader.readAsText(file);
         }
+        // 파일 입력 초기화
+        event.target.value = '';
     }
 
     // 파일 다운로드
     downloadFile() {
         const content = this.editor.getValue();
+        if (!content.trim()) {
+            this.showNotification('다운로드할 내용이 없습니다.', 'warning');
+            return;
+        }
+        
         const blob = new Blob([content], { type: 'text/html' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -246,45 +286,47 @@ class HTMLEditor {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>샘플 HTML 페이지</title>
+    <title>HTML Online Editor 샘플</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem;
             line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            min-height: 100vh;
         }
         .container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
+            padding: 2rem;
+            border-radius: 1rem;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
         h1 {
             color: #fff;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.5rem;
         }
         .card {
             background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.75rem;
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         button {
             background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
@@ -294,14 +336,25 @@ class HTMLEditor {
         }
         .highlight {
             background: rgba(255, 255, 0, 0.3);
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        li:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌟 HTML Online Editor 샘플 페이지</h1>
+        <h1>🌟 HTML Online Editor</h1>
         
         <div class="card">
             <h2>환영합니다!</h2>
@@ -345,25 +398,33 @@ class HTMLEditor {
 </html>`;
         
         this.editor.setValue(sampleHTML);
+        this.updatePreview();
         this.showNotification('샘플 코드가 로드되었습니다.', 'success');
     }
 
     // 전체화면 토글
     toggleFullscreen() {
-        const container = document.querySelector('.container');
-        this.isFullscreen = !this.isFullscreen;
-        
-        if (this.isFullscreen) {
-            container.classList.add('fullscreen');
-            document.getElementById('fullscreenBtn').innerHTML = '<i class="fas fa-compress"></i> 전체화면 해제';
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().then(() => {
+                this.isFullscreen = true;
+                document.getElementById('fullscreenBtn').innerHTML = '<i class="fas fa-compress"></i> <span>전체화면 해제</span>';
+                this.showNotification('전체화면 모드로 전환되었습니다.', 'info');
+            }).catch(err => {
+                this.showNotification('전체화면 모드 전환에 실패했습니다.', 'error');
+            });
         } else {
-            container.classList.remove('fullscreen');
-            document.getElementById('fullscreenBtn').innerHTML = '<i class="fas fa-expand"></i> 전체화면';
+            document.exitFullscreen().then(() => {
+                this.isFullscreen = false;
+                document.getElementById('fullscreenBtn').innerHTML = '<i class="fas fa-expand"></i> <span>전체화면</span>';
+                this.showNotification('전체화면 모드가 해제되었습니다.', 'info');
+            });
         }
         
         // 에디터 새로고침
         setTimeout(() => {
-            this.editor.refresh();
+            if (this.editor) {
+                this.editor.refresh();
+            }
         }, 100);
     }
 
@@ -374,7 +435,9 @@ class HTMLEditor {
         localStorage.setItem('theme', this.currentTheme);
         
         // CodeMirror 테마 변경
-        this.editor.setOption('theme', this.currentTheme === 'dark' ? 'monokai' : 'default');
+        if (this.editor) {
+            this.editor.setOption('theme', this.currentTheme === 'dark' ? 'monokai' : 'default');
+        }
         
         this.updateThemeIcon();
         this.showNotification(`${this.currentTheme === 'dark' ? '다크' : '라이트'} 테마로 변경되었습니다.`, 'info');
@@ -383,18 +446,29 @@ class HTMLEditor {
     // 테마 아이콘 업데이트
     updateThemeIcon() {
         const icon = document.querySelector('#themeToggle i');
-        icon.className = this.currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        if (icon) {
+            icon.className = this.currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
     }
 
     // 통계 업데이트 (줄 수, 문자 수)
     updateStats() {
+        if (!this.editor) return;
+        
         const content = this.editor.getValue();
         const lines = this.editor.lineCount();
         const chars = content.length;
         const cursor = this.editor.getCursor();
         
-        document.querySelector('.line-count').textContent = `줄: ${cursor.line + 1}/${lines}`;
-        document.querySelector('.char-count').textContent = `문자: ${chars}`;
+        const lineCountEl = document.querySelector('.line-count');
+        const charCountEl = document.querySelector('.char-count');
+        
+        if (lineCountEl) {
+            lineCountEl.textContent = `줄: ${cursor.line + 1}/${lines}`;
+        }
+        if (charCountEl) {
+            charCountEl.textContent = `문자: ${chars}`;
+        }
     }
 
     // 자동 저장
@@ -444,7 +518,7 @@ class HTMLEditor {
             top: '20px',
             right: '20px',
             padding: '12px 16px',
-            borderRadius: '6px',
+            borderRadius: '8px',
             color: 'white',
             fontSize: '14px',
             fontWeight: '500',
@@ -501,12 +575,12 @@ class HTMLEditor {
     // 알림 색상 반환
     getNotificationColor(type) {
         const colors = {
-            success: '#28a745',
-            error: '#dc3545',
-            warning: '#ffc107',
-            info: '#17a2b8'
+            success: '#059669',
+            error: '#dc2626',
+            warning: '#d97706',
+            info: '#0891b2'
         };
-        return colors[type] || '#17a2b8';
+        return colors[type] || '#0891b2';
     }
 }
 
@@ -533,6 +607,11 @@ style.textContent = `
             transform: translateX(100%);
             opacity: 0;
         }
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 `;
 document.head.appendChild(style);
