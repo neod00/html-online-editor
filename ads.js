@@ -51,7 +51,7 @@
     container.appendChild(ins);
 
     const push = () => {
-      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) { /* noop */ }
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); container.classList.add('ad-active'); } catch (e) { /* noop */ }
     };
 
     if (window.adsbygoogle) {
