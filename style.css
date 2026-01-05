@@ -108,7 +108,7 @@ body {
 }
 
 .logo-section h1 {
-  font-size: 1.6 rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--text-primary);
   display: flex;
@@ -688,8 +688,6 @@ body {
     transform: rotate(360deg);
   }
 }
-
-
 
 /* 블로그 & 아티클 스타일 */
 .blog-container {
