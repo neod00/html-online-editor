@@ -1,4 +1,4 @@
-// HTML Online Editor - JavaScript
+// EasyHTML - JavaScript
 class HTMLEditor {
     constructor() {
         this.editor = null;
@@ -6,8 +6,66 @@ class HTMLEditor {
         this.isFullscreen = false;
         this.autoSaveInterval = null;
         this.currentTheme = localStorage.getItem('theme') || 'light';
-        
+        this.lang = document.documentElement.lang || 'en';
+
+        this.translations = {
+            ko: {
+                previewInNewTab: '새 탭에서 미리보기가 열렸습니다.',
+                noPreviewContent: '미리보기할 내용이 없습니다.',
+                noFormatContent: '포맷팅할 내용이 없습니다.',
+                codeFormatted: '코드가 포맷팅되었습니다.',
+                formatError: '포맷팅 중 오류가 발생했습니다.',
+                confirmClear: '정말로 모든 내용을 지우시겠습니까?',
+                cleared: '내용이 지워졌습니다.',
+                noSaveContent: '저장할 내용이 없습니다.',
+                savedLocal: '로컬에 저장되었습니다.',
+                loadedLocal: '저장된 내용을 불러왔습니다.',
+                loadError: '저장된 데이터를 읽는 중 오류가 발생했습니다.',
+                noSavedContent: '저장된 내용이 없습니다.',
+                fileUploaded: '파일이 업로드되었습니다.',
+                noDownloadContent: '다운로드할 내용이 없습니다.',
+                fileDownloaded: '파일이 다운로드되었습니다.',
+                sampleLoaded: '샘플 코드가 로드되었습니다.',
+                fullscreenOn: '전체화면 모드로 전환되었습니다.',
+                fullscreenOff: '전체화면 모드가 해제되었습니다.',
+                fullscreenError: '전체화면 모드 전환에 실패했습니다.',
+                line: '줄',
+                char: '문자',
+                fullscreenExit: '전체화면 해제',
+                fullscreenEnter: '전체화면'
+            },
+            en: {
+                previewInNewTab: 'Preview opened in a new tab.',
+                noPreviewContent: 'No content to preview.',
+                noFormatContent: 'No content to format.',
+                codeFormatted: 'Code formatted successfully.',
+                formatError: 'Error occurred during formatting.',
+                confirmClear: 'Are you sure you want to clear all content?',
+                cleared: 'Content cleared.',
+                noSaveContent: 'No content to save.',
+                savedLocal: 'Saved to local storage.',
+                loadedLocal: 'Loaded saved content.',
+                loadError: 'Error reading saved data.',
+                noSavedContent: 'No saved content found.',
+                fileUploaded: 'File uploaded.',
+                noDownloadContent: 'No content to download.',
+                fileDownloaded: 'File downloaded.',
+                sampleLoaded: 'Sample code loaded.',
+                fullscreenOn: 'Switched to fullscreen mode.',
+                fullscreenOff: 'Exited fullscreen mode.',
+                fullscreenError: 'Failed to switch to fullscreen mode.',
+                line: 'Line',
+                char: 'Char',
+                fullscreenExit: 'Exit Fullscreen',
+                fullscreenEnter: 'Fullscreen'
+            }
+        };
+
         this.init();
+    }
+
+    t(key) {
+        return this.translations[this.lang][key] || key;
     }
 
     init() {
@@ -56,7 +114,7 @@ class HTMLEditor {
             this.updatePreview();
             this.updateStats();
             this.autoSave();
-            
+
             // 광고 표시 조건 재검사
             if (window.checkAdDisplayConditions) {
                 window.checkAdDisplayConditions();
@@ -139,7 +197,7 @@ class HTMLEditor {
             const blob = new Blob([htmlContent], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
             this.previewFrame.src = url;
-            
+
             // 이전 URL 정리
             setTimeout(() => URL.revokeObjectURL(url), 1000);
         } else {
@@ -154,9 +212,9 @@ class HTMLEditor {
             const newWindow = window.open();
             newWindow.document.write(htmlContent);
             newWindow.document.close();
-            this.showNotification('새 탭에서 미리보기가 열렸습니다.', 'success');
+            this.showNotification(this.t('previewInNewTab'), 'success');
         } else {
-            this.showNotification('미리보기할 내용이 없습니다.', 'warning');
+            this.showNotification(this.t('noPreviewContent'), 'warning');
         }
     }
 
@@ -165,10 +223,10 @@ class HTMLEditor {
         try {
             const htmlContent = this.editor.getValue();
             if (!htmlContent.trim()) {
-                this.showNotification('포맷팅할 내용이 없습니다.', 'warning');
+                this.showNotification(this.t('noFormatContent'), 'warning');
                 return;
             }
-            
+
             const formatted = html_beautify(htmlContent, {
                 indent_size: 2,
                 indent_char: ' ',
@@ -189,18 +247,18 @@ class HTMLEditor {
                 indent_empty_lines: false
             });
             this.editor.setValue(formatted);
-            this.showNotification('코드가 포맷팅되었습니다.', 'success');
+            this.showNotification(this.t('codeFormatted'), 'success');
         } catch (error) {
-            this.showNotification('포맷팅 중 오류가 발생했습니다.', 'error');
+            this.showNotification(this.t('formatError'), 'error');
         }
     }
 
     // 에디터 내용 지우기
     clearEditor() {
-        if (confirm('정말로 모든 내용을 지우시겠습니까?')) {
+        if (confirm(this.t('confirmClear'))) {
             this.editor.setValue('');
             this.updatePreview();
-            this.showNotification('내용이 지워졌습니다.', 'info');
+            this.showNotification(this.t('cleared'), 'info');
         }
     }
 
@@ -208,17 +266,17 @@ class HTMLEditor {
     saveToLocal() {
         const content = this.editor.getValue();
         if (!content.trim()) {
-            this.showNotification('저장할 내용이 없습니다.', 'warning');
+            this.showNotification(this.t('noSaveContent'), 'warning');
             return;
         }
-        
+
         const timestamp = new Date().toISOString();
         const saveData = {
             content: content,
             timestamp: timestamp
         };
         localStorage.setItem('htmlEditor_save', JSON.stringify(saveData));
-        this.showNotification('로컬에 저장되었습니다.', 'success');
+        this.showNotification(this.t('savedLocal'), 'success');
     }
 
     // 로컬 스토리지에서 불러오기
@@ -229,12 +287,12 @@ class HTMLEditor {
                 const data = JSON.parse(saveData);
                 this.editor.setValue(data.content);
                 this.updatePreview();
-                this.showNotification(`저장된 내용을 불러왔습니다. (${new Date(data.timestamp).toLocaleString()})`, 'success');
+                this.showNotification(`${this.t('loadedLocal')} (${new Date(data.timestamp).toLocaleString()})`, 'success');
             } catch (error) {
-                this.showNotification('저장된 데이터를 읽는 중 오류가 발생했습니다.', 'error');
+                this.showNotification(this.t('loadError'), 'error');
             }
         } else {
-            this.showNotification('저장된 내용이 없습니다.', 'warning');
+            this.showNotification(this.t('noSavedContent'), 'warning');
         }
     }
 
@@ -251,7 +309,7 @@ class HTMLEditor {
             reader.onload = (e) => {
                 this.editor.setValue(e.target.result);
                 this.updatePreview();
-                this.showNotification(`파일 "${file.name}"이 업로드되었습니다.`, 'success');
+                this.showNotification(`${this.t('fileUploaded')} ("${file.name}")`, 'success');
             };
             reader.readAsText(file);
         }
@@ -263,10 +321,10 @@ class HTMLEditor {
     downloadFile() {
         const content = this.editor.getValue();
         if (!content.trim()) {
-            this.showNotification('다운로드할 내용이 없습니다.', 'warning');
+            this.showNotification(this.t('noDownloadContent'), 'warning');
             return;
         }
-        
+
         const blob = new Blob([content], { type: 'text/html' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -276,17 +334,20 @@ class HTMLEditor {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-        this.showNotification('파일이 다운로드되었습니다.', 'success');
+        this.showNotification(this.t('fileDownloaded'), 'success');
     }
 
     // 샘플 코드 로드
     loadSample() {
-        const sampleHTML = `<!DOCTYPE html>
+        let sampleHTML = '';
+
+        if (this.lang === 'ko') {
+            sampleHTML = `<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Online Editor 샘플</title>
+    <title>EasyHTML 샘플</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -354,11 +415,11 @@ class HTMLEditor {
 </head>
 <body>
     <div class="container">
-        <h1>🌟 HTML Online Editor</h1>
+        <h1>🌟 EasyHTML</h1>
         
         <div class="card">
             <h2>환영합니다!</h2>
-            <p>이것은 <span class="highlight">HTML Online Editor</span>의 샘플 페이지입니다.</p>
+            <p>이것은 <span class="highlight">EasyHTML</span>의 샘플 페이지입니다.</p>
             <p>이 에디터를 사용하여 실시간으로 HTML을 편집하고 미리보기를 확인할 수 있습니다.</p>
         </div>
 
@@ -383,7 +444,7 @@ class HTMLEditor {
 
     <script>
         function showAlert() {
-            alert('안녕하세요! HTML Online Editor입니다.');
+            alert('안녕하세요! EasyHTML입니다.');
             document.getElementById('demo').innerHTML = '텍스트가 변경되었습니다! 🎉';
             document.getElementById('demo').style.color = '#ffeb3b';
             document.getElementById('demo').style.fontWeight = 'bold';
@@ -396,10 +457,127 @@ class HTMLEditor {
     </script>
 </body>
 </html>`;
+        } else {
+            sampleHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyHTML Sample</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.5rem;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .highlight {
+            background: rgba(255, 255, 0, 0.3);
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 EasyHTML</h1>
         
+        <div class="card">
+            <h2>Welcome!</h2>
+            <p>This is a sample page for <span class="highlight">EasyHTML</span>.</p>
+            <p>Use this editor to edit HTML in real-time and see previews.</p>
+        </div>
+
+        <div class="card">
+            <h3>Key Features</h3>
+            <ul>
+                <li>Real-time HTML Preview</li>
+                <li>Code Highlighting & Formatting</li>
+                <li>File Upload/Download</li>
+                <li>Local Save/Load</li>
+                <li>Dark/Light Theme</li>
+                <li>Fullscreen Mode</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Interactive Elements</h3>
+            <button onclick="showAlert()">Click Me!</button>
+            <p id="demo">This text can be changed with JavaScript.</p>
+        </div>
+    </div>
+
+    <script>
+        function showAlert() {
+            alert('Hello! This is EasyHTML.');
+            document.getElementById('demo').innerHTML = 'Text changed! 🎉';
+            document.getElementById('demo').style.color = '#ffeb3b';
+            document.getElementById('demo').style.fontWeight = 'bold';
+        }
+        
+        // 페이지 로드시 애니메이션
+        window.addEventListener('load', function() {
+            document.querySelector('.container').style.animation = 'fadeIn 1s ease-in';
+        });
+    </script>
+</body>
+</html>`;
+        }
+
         this.editor.setValue(sampleHTML);
         this.updatePreview();
-        this.showNotification('샘플 코드가 로드되었습니다.', 'success');
+        this.showNotification(this.t('sampleLoaded'), 'success');
     }
 
     // 전체화면 토글
@@ -407,19 +585,19 @@ class HTMLEditor {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen().then(() => {
                 this.isFullscreen = true;
-                document.getElementById('fullscreenBtn').innerHTML = '<i class="fas fa-compress"></i> <span>전체화면 해제</span>';
-                this.showNotification('전체화면 모드로 전환되었습니다.', 'info');
+                document.getElementById('fullscreenBtn').innerHTML = `<i class="fas fa-compress"></i> <span>${this.t('fullscreenExit')}</span>`;
+                this.showNotification(this.t('fullscreenOn'), 'info');
             }).catch(err => {
-                this.showNotification('전체화면 모드 전환에 실패했습니다.', 'error');
+                this.showNotification(this.t('fullscreenError'), 'error');
             });
         } else {
             document.exitFullscreen().then(() => {
                 this.isFullscreen = false;
-                document.getElementById('fullscreenBtn').innerHTML = '<i class="fas fa-expand"></i> <span>전체화면</span>';
-                this.showNotification('전체화면 모드가 해제되었습니다.', 'info');
+                document.getElementById('fullscreenBtn').innerHTML = `<i class="fas fa-expand"></i> <span>${this.t('fullscreenEnter')}</span>`;
+                this.showNotification(this.t('fullscreenOff'), 'info');
             });
         }
-        
+
         // 에디터 새로고침
         setTimeout(() => {
             if (this.editor) {
@@ -433,14 +611,20 @@ class HTMLEditor {
         this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', this.currentTheme);
         localStorage.setItem('theme', this.currentTheme);
-        
+
         // CodeMirror 테마 변경
         if (this.editor) {
             this.editor.setOption('theme', this.currentTheme === 'dark' ? 'monokai' : 'default');
         }
-        
+
+
         this.updateThemeIcon();
-        this.showNotification(`${this.currentTheme === 'dark' ? '다크' : '라이트'} 테마로 변경되었습니다.`, 'info');
+        const themeName = this.currentTheme === 'dark' ? (this.lang === 'ko' ? '다크' : 'Dark') : (this.lang === 'ko' ? '라이트' : 'Light');
+        if (this.translations[this.lang].themeChanged) {
+            // Simple string replacement as fallback logic
+            const msg = this.lang === 'ko' ? `${themeName} 테마로 변경되었습니다.` : `Switched to ${themeName} theme.`;
+            this.showNotification(msg, 'info');
+        }
     }
 
     // 테마 아이콘 업데이트
@@ -454,20 +638,20 @@ class HTMLEditor {
     // 통계 업데이트 (줄 수, 문자 수)
     updateStats() {
         if (!this.editor) return;
-        
+
         const content = this.editor.getValue();
         const lines = this.editor.lineCount();
         const chars = content.length;
         const cursor = this.editor.getCursor();
-        
+
         const lineCountEl = document.querySelector('.line-count');
         const charCountEl = document.querySelector('.char-count');
-        
+
         if (lineCountEl) {
-            lineCountEl.textContent = `줄: ${cursor.line + 1}/${lines}`;
+            lineCountEl.textContent = `${this.t('line')}: ${cursor.line + 1}/${lines}`;
         }
         if (charCountEl) {
-            charCountEl.textContent = `문자: ${chars}`;
+            charCountEl.textContent = `${this.t('char')}: ${chars}`;
         }
     }
 

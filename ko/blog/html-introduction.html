@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 기초: 초보자를 위한 완벽 입문 가이드 - EasyHTML (이지 HTML)</title>
+    <meta name="description" content="HTML이란 무엇인가요? 웹 개발의 시작점인 HTML의 기본 구조, 필수 태그, 시멘틱 마크업에 대해 상세히 알아봅니다.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><a href="../index.html"
+                            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                            <div class="brand-logo"></div> EasyHTML
+                        </a></h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">가이드</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">블로그</a>
+                    <a href="../about.html" class="nav-link">정보</a>
+                    <a href="../../blog/html-introduction.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">EN</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="article-container">
+            <article class="prose">
+                <div class="breadcrumb">
+                    <a href="../index.html">홈</a> &gt; <a href="index.html">블로그</a> &gt; <span>HTML 기초</span>
+                </div>
+
+                <div class="article-header">
+                    <h1>HTML 기초: 초보자를 위한 완벽 입문 가이드</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 2025년 5월 20일</span>
+                        <span><i class="far fa-clock"></i> 10분 읽기</span>
+                        <span><i class="fas fa-tag"></i> HTML 공부</span>
+                    </div>
+                </div>
+
+                <p>웹 개발의 세계에 오신 것을 환영합니다! 웹사이트를 만들고 싶다면 가장 먼저 배워야 할 언어가 바로 <strong>HTML (HyperText Markup
+                        Language)</strong>입니다. 이 글에서는 HTML이 무엇인지, 어떻게 구성되는지, 그리고 꼭 알아야 할 필수 태그들에 대해 심층적으로 다뤄보겠습니다.</p>
+
+                <h2>1. HTML이란 무엇인가요?</h2>
+                <p>HTML은 웹 페이지의 <strong>구조(Structure)</strong>를 담당하는 마크업 언어입니다. 우리가 건물을 지을 때 철골 구조를 먼저 올리듯이, 웹사이트를 만들 때도
+                    HTML로 뼈대를 잡아야 합니다. CSS는 그 뼈대 위에 인테리어(디자인)를 하는 것이고, JavaScript는 전등을 켜거나 창문을 여는 것과 같은 기능(동작)을 부여하는
+                    것입니다.</p>
+                <blockquote>
+                    "HTML은 프로그래밍 언어가 아니라, 콘텐츠가 어떻게 보여져야 하는지 브라우저에게 알려주는 마크업 언어입니다."
+                </blockquote>
+
+                <h2>2. HTML 문서의 기본 구조</h2>
+                <p>모든 HTML 문서는 다음과 같은 표준 구조를 따릅니다. 에디터에 이 코드를 복사해서 붙여넣어 보세요.</p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;나의 첫 웹사이트&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;안녕하세요!&lt;/h1&gt;
+    &lt;p&gt;이것은 본문입니다.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <h3>주요 구성 요소 설명</h3>
+                <ul>
+                    <li><strong>&lt;!DOCTYPE html&gt;</strong>: 이 문서가 HTML5 최신 표준을 따른다는 것을 브라우저에 알립니다.</li>
+                    <li><strong>&lt;html&gt;</strong>: 전체 페이지를 감싸는 최상위 요소입니다.</li>
+                    <li><strong>&lt;head&gt;</strong>: 화면에는 보이지 않지만 검색 엔진이나 브라우저를 위한 정보(메타 데이터, 제목, 스타일시트 연결 등)를 담습니다.
+                    </li>
+                    <li><strong>&lt;body&gt;</strong>: 실제로 사용자에게 보여지는 텍스트, 이미지, 버튼 등이 들어가는 곳입니다.</li>
+                </ul>
+
+                <h2>3. 반드시 알아야 할 필수 태그 5가지</h2>
+                <p>HTML에는 수많은 태그가 있지만, 다음 5가지는 가장 빈번하게 사용되므로 반드시 숙지해야 합니다.</p>
+
+                <h3>(1) 제목 태그 (&lt;h1&gt; ~ &lt;h6&gt;)</h3>
+                <p>제목(Heading)을 나타냅니다. <code>&lt;h1&gt;</code>이 가장 큰 제목이며, 숫자가 커질수록 작은 제목이 됩니다. 검색 엔진은
+                    <code>&lt;h1&gt;</code> 태그를 페이지의 핵심 주제로 인식하므로, 페이지당 한 번만 사용하는 것이 좋습니다.
+                </p>
+
+                <h3>(2) 문단 태그 (&lt;p&gt;)</h3>
+                <p>텍스트 단락(Paragraph)을 만들 때 사용합니다. 긴 글을 작성할 때 가독성을 위해 적절히 문단을 나누는 것이 중요합니다.</p>
+
+                <h3>(3) 링크 태그 (&lt;a&gt;)</h3>
+                <p>다른 페이지로 이동하는 하이퍼링크(Anchor)를 만듭니다.</p>
+                <pre><code class="language-html">&lt;a href="https://google.com" target="_blank"&gt;구글로 이동&lt;/a&gt;</code></pre>
+
+                <h3>(4) 이미지 태그 (&lt;img&gt;)</h3>
+                <p>이미지를 삽입합니다. <code>src</code> 속성에 이미지 주소를, <code>alt</code> 속성에 이미지 설명을 넣습니다.</p>
+                <pre><code class="language-html">&lt;img src="cat.jpg" alt="귀여운 고양이 사진"&gt;</code></pre>
+
+                <h3>(5) 목록 태그 (&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;)</h3>
+                <p>순서가 없는 목록은 <code>&lt;ul&gt;</code>, 순서가 있는 목록은 <code>&lt;ol&gt;</code>을 사용하며, 각 항목은
+                    <code>&lt;li&gt;</code>로 감쌉니다.
+                </p>
+
+                <h2>4. 시멘틱(Semantic) 마크업의 중요성</h2>
+                <p>요즘 웹 개발에서는 단순히 보여지는 것뿐만 아니라, <strong>의미(Semantic)</strong>에 맞는 태그를 사용하는 것이 중요합니다. 예를 들어,
+                    <code>&lt;div&gt;</code>만 남발하는 것보다, 헤더에는 <code>&lt;header&gt;</code>, 본문에는
+                    <code>&lt;main&gt;</code>, 하단에는 <code>&lt;footer&gt;</code> 태그를 사용하는 것이 검색 엔진 최적화(SEO)에도 좋고 코드의 가독성도
+                    높여줍니다.
+                </p>
+
+                <h2>마치며</h2>
+                <p>이제 HTML의 기초를 다지셨습니다. 다음 단계는 CSS를 배워 여러분의 사이트를 아름답게 꾸미는 것입니다. 저희 <strong>EasyHTML</strong>를
+                    활용해 오늘 배운 태그들을 직접 실습해보세요! 백문이 불여일타, 직접 코드를 쳐보는 것이 최고의 학습법입니다.</p>
+
+            </article>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

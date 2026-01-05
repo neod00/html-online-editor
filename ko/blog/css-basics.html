@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 시작하기: 웹사이트 디자인의 첫걸음 - EasyHTML (이지 HTML)</title>
+    <meta name="description" content="CSS의 기본 개념과 선택자, 주요 스타일 속성을 배워 나만의 웹사이트를 디자인해보세요.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><a href="../index.html"
+                            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                            <div class="brand-logo"></div> EasyHTML
+                        </a></h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">가이드</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">블로그</a>
+                    <a href="../about.html" class="nav-link">정보</a>
+                    <a href="../../blog/css-basics.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">EN</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="article-container">
+            <article class="prose">
+                <div class="breadcrumb">
+                    <a href="../index.html">홈</a> &gt; <a href="index.html">블로그</a> &gt; <span>CSS 기초</span>
+                </div>
+
+                <div class="article-header">
+                    <h1>CSS 시작하기: 웹사이트 디자인의 첫걸음</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 2025년 5월 22일</span>
+                        <span><i class="far fa-clock"></i> 12분 읽기</span>
+                        <span><i class="fas fa-tag"></i> CSS 디자인</span>
+                    </div>
+                </div>
+
+                <p>HTML로 웹사이트의 뼈대를 만들었다면, 이제 <strong>CSS (Cascading Style Sheets)</strong>로 옷을 입힐 차례입니다. CSS는 글자 색상을 바꾸는
+                    단순한 작업부터, 화면 배치(Layout)를 잡고 애니메이션 효과를 주는 복잡한 디자인까지 모든 스타일링을 담당합니다.</p>
+
+                <h2>1. CSS 문법 구조</h2>
+                <p>CSS는 <strong>누구를(선택자)</strong>, <strong>어떻게(속성)</strong> 바꿀지를 정의하는 언어입니다. 기본 문법은 다음과 같습니다.</p>
+                <pre><code class="language-css">h1 {
+  color: blue;
+  font-size: 24px;
+}</code></pre>
+                <ul>
+                    <li><strong>선택자 (Selector)</strong>: 스타일을 적용할 대상을 선택합니다. 위 예제에서는 <code>h1</code> 태그가 선택자입니다.</li>
+                    <li><strong>속성 (Property)</strong>: 변경하고 싶은 스타일의 종류입니다. (예: <code>color</code>,
+                        <code>font-size</code>)
+                    </li>
+                    <li><strong>값 (Value)</strong>: 속성에 적용할 구체적인 값입니다. (예: <code>blue</code>, <code>24px</code>)</li>
+                </ul>
+
+                <h2>2. CSS를 적용하는 3가지 방법</h2>
+                <h3>(1) 인라인 스타일 (Inline Style)</h3>
+                <p>HTML 태그 안에 직접 <code>style</code> 속성을 사용하는 방법입니다. 급할 때 쓰기 좋지만, 코드가 지저분해지므로 추천하지 않습니다.</p>
+                <pre><code class="language-html">&lt;h1 style="color: red;"&gt;빨간색 제목&lt;/h1&gt;</code></pre>
+
+                <h3>(2) 내부 스타일시트 (Internal Style Sheet)</h3>
+                <p>HTML 문서의 <code>&lt;head&gt;</code> 안에 <code>&lt;style&gt;</code> 태그를 만들어 작성하는 방법입니다. 간단한 페이지를 만들 때
+                    유용합니다.</p>
+
+                <h3>(3) 외부 스타일시트 (External Style Sheet) - 권장!</h3>
+                <p>확장자가 <code>.css</code>인 별도의 파일을 만들고 링크를 거는 방법입니다. 여러 페이지에서 스타일을 공유할 수 있어 관리가 가장 쉽습니다.</p>
+                <pre><code class="language-html">&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+
+                <h2>3. 필수 CSS 속성 베스트</h2>
+                <h3>색상과 배경</h3>
+                <ul>
+                    <li><code>color</code>: 글자 색상을 변경합니다.</li>
+                    <li><code>background-color</code>: 배경 색상을 변경합니다.</li>
+                </ul>
+
+                <h3>폰트와 텍스트</h3>
+                <ul>
+                    <li><code>font-size</code>: 글자 크기를 조절합니다. (px, rem 등을 사용)</li>
+                    <li><code>font-weight</code>: 글자 굵기를 조절합니다. (bold, 400, 700 등)</li>
+                    <li><code>text-align</code>: 텍스트를 정렬합니다. (left, center, right)</li>
+                </ul>
+
+                <h3>박스 모델 (Box Model) - 매우 중요!</h3>
+                <p>웹의 모든 요소는 사각형 박스로 이루어져 있습니다. 이 박스를 다루는 속성들입니다.</p>
+                <ul>
+                    <li><code>width</code> / <code>height</code>: 너비와 높이</li>
+                    <li><code>margin</code>: 박스 <strong>바깥쪽</strong> 여백</li>
+                    <li><code>padding</code>: 박스 <strong>안쪽</strong> 여백</li>
+                    <li><code>border</code>: 테두리</li>
+                </ul>
+
+                <h2>4. 실습: 나만의 버튼 만들기</h2>
+                <p>다음 코드를 에디터에 입력하여 예쁜 버튼을 만들어보세요!</p>
+                <pre><code class="language-css">.my-btn {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.my-btn:hover {
+  background-color: #1d4ed8;
+}</code></pre>
+
+                <h2>마치며</h2>
+                <p>CSS는 배우면 배울수록 깊이가 있는 언어입니다. 처음에는 색상과 크기를 바꾸는 것부터 시작해서, 점차 레이아웃(Flexbox, Grid)과 반응형 웹 디자인으로 영역을 넓혀가
+                    보세요. 여러분의 웹사이트가 전문가의 손길이 닿은 것처럼 변할 것입니다.</p>
+
+            </article>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

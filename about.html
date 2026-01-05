@@ -1,42 +1,99 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>정보 | HTML Online Editor</title>
-  <meta name="description" content="HTML Online Editor 프로젝트와 기능 개요">
+  <title>About - EasyHTML</title>
+  <meta name="description"
+    content="Learn about EasyHTML, a professional web editor designed for everyone. Our mission is to make web development accessible and secure for students and developers worldwide.">
+  <link rel="canonical" href="https://html-editor-pro.netlify.app/about.html" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <header class="header">
-      <h1>프로젝트 정보</h1>
-      <p>실시간 HTML 편집, 미리보기, 포맷팅 등 생산성을 높여주는 기능을 제공합니다.</p>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo-section">
+          <h1><a href="index.html"
+              style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+              <div class="brand-logo"></div> EasyHTML
+            </a></h1>
+        </div>
+        <nav class="header-nav">
+          <a href="guide.html" class="nav-link">Guide</a>
+          <a href="blog/index.html" class="nav-link">Blog</a>
+          <a href="about.html" class="nav-link active" style="color:var(--primary)">About</a>
+          <a href="privacy.html" class="nav-link">Privacy</a>
+          <a href="terms.html" class="nav-link">Terms</a>
+          <a href="ko/about.html" class="nav-link" style="font-weight:bold; color:var(--primary)">KO</a>
+        </nav>
+        <div class="header-controls">
+          <button id="themeToggle" class="theme-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
     </header>
 
-    <section class="content-section">
-      <h2>목표</h2>
-      <p>학습자와 제작자에게 가치를 제공하는 도구가 되는 것입니다. 광고는 보조적이며, 주요 가치는 유용한 기능과 가이드에서 나옵니다.</p>
-      <div id="ad-inline-1" class="ad-slot" aria-label="스폰서 링크"></div>
-    </section>
+    <main class="blog-container">
+      <article class="prose">
+        <div class="blog-header" style="text-align: left; margin-bottom: var(--spacing-xl);">
+          <h1>About EasyHTML</h1>
+          <p>A small tool for a better web world</p>
+        </div>
 
-    <section class="content-section">
-      <h2>기능</h2>
-      <ul>
-        <li>CodeMirror 기반 코드 편집</li>
-        <li>JS Beautifier 포맷팅</li>
-        <li>로컬 저장 및 파일 입출력</li>
-        <li>다크/라이트 테마</li>
-      </ul>
-    </section>
+        <h2>Our Mission</h2>
+        <p><strong>"Coding should be accessible and secure for everyone."</strong></p>
+        <p>EasyHTML was born from a simple mission: to lower the barrier to entry for web development. We provide a
+          seamless, no-install environment where students, educators, and developers can experiment with code instantly.
+          By leveraging modern browser technologies, we've created a tool that is both powerful and 100% private.</p>
 
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="index.html">홈으로</a>
-        <a href="guide.html">가이드</a>
+        <h2>Professional Standards</h2>
+        <p>Designed with professional standards in mind, EasyHTML utilizes industry-standard libraries like CodeMirror
+          and js-beautify to ensure a high-quality coding experience. We believe that a great tool should be simple
+          enough for a beginner but robust enough for a pro's quick prototype.</p>
+
+        <h2>Key Features</h2>
+        <div class="blog-grid" style="margin-top: var(--spacing-lg);">
+          <div class="article-card" style="padding: var(--spacing-lg);">
+            <h3 style="margin-top: 0; display:flex; align-items:center; gap:10px;"><i class="fas fa-bolt"
+                style="color:var(--warning)"></i> Instant Feedback</h3>
+            <p style="margin-bottom:0">Preview updates instantly as you type. Increase your learning efficiency by
+              seeing how your code renders in real-time.</p>
+          </div>
+          <div class="article-card" style="padding: var(--spacing-lg);">
+            <h3 style="margin-top: 0; display:flex; align-items:center; gap:10px;"><i class="fas fa-shield-alt"
+                style="color:var(--success)"></i> Strong Security</h3>
+            <p style="margin-bottom:0">All processing happens within your browser without sending data to a server. Your
+              code never leaves your device.</p>
+          </div>
+          <div class="article-card" style="padding: var(--spacing-lg);">
+            <h3 style="margin-top: 0; display:flex; align-items:center; gap:10px;"><i class="fas fa-mobile-alt"
+                style="color:var(--primary)"></i> Responsive Design</h3>
+            <p style="margin-bottom:0">Use comfortably on PC, Tablet, or Smartphone. Capture your ideas into code even
+              while on the move.</p>
+          </div>
+        </div>
+
+        <h2>Contact Us</h2>
+        <p>Have questions, feedback, or a partnership inquiry? Our team is dedicated to improving the developer
+          experience. Reach out to us at:</p>
+        <p style="font-weight: bold;"><i class="fas fa-envelope"></i> help@openbrain.inc</p>
+
+      </article>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   </div>
-  <script src="ads.js"></script>
 </body>
+
 </html>

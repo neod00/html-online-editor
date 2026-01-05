@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시맨틱 HTML: SEO를 위해 꼭 알아야 할 것들 - EasyHTML</title>
+    <meta name="description" content="시맨틱 HTML 태그의 중요성과 이것이 어떻게 웹사이트의 검색 엔진 순위 및 접근성을 향상시키는지 알아보세요.">
+    <link rel="canonical" href="https://html-editor-pro.netlify.app/ko/blog/semantic-html.html" />
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><a href="../index.html"
+                            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                            <div class="brand-logo"></div> EasyHTML
+                        </a></h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">가이드</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">블로그</a>
+                    <a href="../about.html" class="nav-link">정보</a>
+                    <a href="../../blog/semantic-html.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">EN</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="article-container">
+            <article class="prose">
+                <div class="breadcrumb">
+                    <a href="../index.html">홈</a> &gt; <a href="index.html">블로그</a> &gt; <span>시맨틱 HTML</span>
+                </div>
+
+                <div class="article-header">
+                    <h1>시맨틱 HTML: SEO를 위해 꼭 알아야 할 것들</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 2025년 6월 2일</span>
+                        <span><i class="far fa-clock"></i> 6분 읽기</span>
+                        <span><i class="fas fa-tag"></i> SEO</span>
+                    </div>
+                </div>
+
+                <p>웹사이트를 만들 때 모든 요소에 <code>&lt;div&gt;</code>를 쓰고 싶은 유혹에 빠지기 쉽습니다. 하지만 HTML5는 콘텐츠에 의미를 부여하는 "시맨틱
+                    태그(Semantic Tags)"를 도입했습니다. 이는 단순히 코드를 깔끔하게 만드는 것을 넘어 검색 엔진 최적화(SEO)의 핵심 요소입니다.</p>
+
+                <h2>시맨틱 HTML이란 무엇인가요?</h2>
+                <p>시맨틱 HTML은 포함된 콘텐츠의 의미를 설명하는 태그를 말합니다. 예를 들어, <code>&lt;header&gt;</code>는 브라우저와 검색 엔진에게 "이것은 페이지의 상단
+                    부분이다"라고 말해줍니다. 반면 <code>&lt;div&gt;</code>는 그 용도에 대해 아무것도 설명하지 않습니다.</p>
+
+                <h2>주요 시맨틱 태그와 용도</h2>
+                <ul>
+                    <li><strong>&lt;main&gt;</strong>: 페이지의 독보적인 주 콘텐츠를 감쌉니다. 페이지당 하나만 사용해야 합니다.</li>
+                    <li><strong>&lt;article&gt;</strong>: 블로그 포스트나 뉴스 기사처럼 그 자체로 독립적인 콘텐츠에 사용합니다.</li>
+                    <li><strong>&lt;section&gt;</strong>: 관련된 콘텐츠를 그룹화할 때 사용합니다.</li>
+                    <li><strong>&lt;nav&gt;</strong>: 내비게이션 링크들을 위한 전용 태그입니다.</li>
+                    <li><strong>&lt;aside&gt;</strong>: 사이드바와 같이 주요 내용과 간접적으로 관련된 콘텐츠에 사용합니다.</li>
+                    <li><strong>&lt;footer&gt;</strong>: 페이지나 섹션의 하단 부분을 나타냅니다.</li>
+                </ul>
+
+                <h2>SEO에 주는 이점</h2>
+                <p>구글과 같은 검색 엔진은 '스파이더'를 사용하여 사이트를 탐색합니다. 시맨틱 태그는 이 스파이더들에게 로드맵 역할을 합니다. <code>&lt;article&gt;</code>과
+                    <code>&lt;h1&gt;</code>을 올바르게 사용함으로써, 구글에게 페이지에서 가장 중요한 부분이 어디인지 정확히 알려줄 수 있고, 이는 관련 키워드 검색 순위 향상으로
+                    이어집니다.</p>
+
+                <h2>웹 접근성 향상</h2>
+                <p>시맨틱 HTML은 스크린 리더 사용자에게도 필수적입니다. 시각 장애가 있는 사용자는 이러한 태그를 이용해 사이트를 탐색합니다. <code>&lt;nav&gt;</code> 태그를
+                    사용하면 스크린 리더가 메뉴로 바로 건너뛸 수 있어 사용자 경험이 크게 개선됩니다.</p>
+
+                <h2>결론</h2>
+                <p>좋은 코드는 단순히 브라우저에서 어떻게 보이는지 이상의 가치를 가집니다. 시맨틱 태그를 사용함으로써 여러분은 더 전문적이고, 접근성이 높으며, 검색 엔진 친화적인 웹사이트를 구축하게
+                    됩니다. 오늘부터 의미 없는 div 대신 의미 있는 태그들을 사용해 보세요!</p>
+
+            </article>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,66 +1,143 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>가이드 | HTML Online Editor</title>
-  <meta name="description" content="HTML Online Editor 사용 방법: 실시간 미리보기, 포맷팅, 파일 업로드/다운로드, 단축키 등 단계별 가이드">
+  <title>User Guide - EasyHTML</title>
+  <meta name="description"
+    content="Comprehensive guide for using EasyHTML. Learn about the real-time editor interface, essential keyboard shortcuts, file management, and security best practices.">
+  <link rel="canonical" href="https://html-editor-pro.netlify.app/guide.html" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <header class="header">
-      <h1>사용 가이드</h1>
-      <p>에디터를 효과적으로 활용하는 방법을 단계별로 안내합니다.</p>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo-section">
+          <h1><a href="index.html"
+              style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+              <div class="brand-logo"></div> EasyHTML
+            </a></h1>
+        </div>
+        <nav class="header-nav">
+          <a href="guide.html" class="nav-link active" style="color:var(--primary)">Guide</a>
+          <a href="blog/index.html" class="nav-link">Blog</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="privacy.html" class="nav-link">Privacy</a>
+          <a href="terms.html" class="nav-link">Terms</a>
+          <a href="ko/guide.html" class="nav-link" style="font-weight:bold; color:var(--primary)">KO</a>
+        </nav>
+        <div class="header-controls">
+          <button id="themeToggle" class="theme-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
     </header>
 
-    <section class="content-section">
-      <h2>1. 실시간 미리보기</h2>
-      <p>에디터에 입력한 HTML은 오른쪽 패널에서 즉시 렌더링됩니다. ‘미리보기 새로고침’ 버튼으로 수동 갱신도 가능합니다.</p>
-      <div id="ad-inline-1" class="ad-slot" aria-label="스폰서 링크"></div>
-    </section>
+    <main class="blog-container">
+      <article class="prose">
+        <div class="blog-header" style="text-align: left; margin-bottom: var(--spacing-xl);">
+          <h1>User Guide & Documentation</h1>
+          <p>Detailed manual to utilize EasyHTML 100%.</p>
+        </div>
 
-    <section class="content-section">
-      <h2>2. 코드 포맷팅</h2>
-      <p>난잡한 HTML을 정리하려면 상단 ‘포맷팅’ 버튼을 누르세요. 자동으로 들여쓰기와 줄바꿈이 정리됩니다.</p>
-    </section>
+        <h2>1. Interface Introduction</h2>
+        <p>EasyHTML provides an intuitive split-screen interface.</p>
+        <ul>
+          <li><strong>Left Panel (Code Editor)</strong>: Where you enter HTML, CSS, JavaScript code. Supports real-time
+            Syntax Highlighting.</li>
+          <li><strong>Right Panel (Preview)</strong>: Shows real-time results of your code.</li>
+          <li><strong>Top Toolbar</strong>: Collection of frequently used buttons (Save, Load, Format, etc.).</li>
+        </ul>
 
-    <section class="content-section">
-      <h2>3. 샘플 템플릿</h2>
-      <p>처음 시작하기 어렵다면 ‘샘플’ 버튼을 눌러 예제 코드로 시작하세요. 학습과 테스트에 유용합니다.</p>
-    </section>
+        <h2>2. Key Features & Shortcuts</h2>
+        <p>We recommend learning the following shortcuts for faster work.</p>
 
-    <section class="content-section">
-      <h2>4. 파일 관리</h2>
-      <ul>
-        <li>로컬 저장/불러오기: 브라우저에 임시 저장하여 나중에 이어서 작업합니다.</li>
-        <li>파일 업로드: 기존 HTML 파일을 불러와 편집할 수 있습니다.</li>
-        <li>다운로드: 완성된 결과를 파일로 저장합니다.</li>
-      </ul>
-      <div id="ad-inline-2" class="ad-slot" aria-label="스폰서 링크"></div>
-    </section>
+        <div
+          style="background: var(--bg-tertiary); padding: var(--spacing-lg); border-radius: 8px; margin-bottom: var(--spacing-lg);">
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-medium);">
+                <th style="text-align: left; padding: 10px;">Feature</th>
+                <th style="text-align: left; padding: 10px;">Shortcut (Windows/Mac)</th>
+                <th style="text-align: left; padding: 10px;">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 10px;">Refresh Preview</td>
+                <td style="padding: 10px;"><code>Ctrl + Enter</code></td>
+                <td style="padding: 10px;">Force reload the preview screen.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 10px;">Format Code</td>
+                <td style="padding: 10px;"><code>Ctrl + Shift + F</code></td>
+                <td style="padding: 10px;">Automatically indent code to make it pretty.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 10px;">Save</td>
+                <td style="padding: 10px;"><code>Ctrl + S</code></td>
+                <td style="padding: 10px;">Temporarily save to browser local storage.</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px;">Load</td>
+                <td style="padding: 10px;"><code>Ctrl + O</code></td>
+                <td style="padding: 10px;">Load temporarily saved code.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <section class="content-section">
-      <h2>5. 단축키</h2>
-      <ul>
-        <li>Alt+1: 새 탭 미리보기</li>
-        <li>Alt+2: 포맷팅</li>
-        <li>Alt+3: 내용 지우기</li>
-        <li>Alt+4/5: 저장/불러오기</li>
-        <li>Alt+6/7: 업로드/다운로드</li>
-        <li>Alt+8/9: 샘플/전체화면</li>
-        <li>Ctrl+S: 저장, F11: 전체화면</li>
-      </ul>
-    </section>
+        <h2>3. File Management</h2>
+        <h3>File Upload</h3>
+        <p>If you have an existing HTML file, click the <strong>[Upload]</strong> button or drag and drop the file into
+          the editor area. The file content will be automatically entered into the editor.</p>
 
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="index.html">홈으로</a>
-        <a href="privacy.html">개인정보처리방침</a>
-        <a href="terms.html">이용약관</a>
+        <h3>File Download</h3>
+        <p>When finished, click the <strong>[Download]</strong> button to save the result as an <code>.html</code> file.
+          This file can be opened in any web browser.</p>
+
+        <h2>4. Frequently Asked Questions (FAQ)</h2>
+        <h3>Q: Is my source code stored on any server during the editing process?</h3>
+        <p>No. One of the core principles of <strong>EasyHTML</strong> is user privacy and data sovereignty. Our
+          application operates <strong>100% client-side</strong>. This means when you type code, format it, or preview
+          it, all that logic happens within your browser's memory. No data is ever transmitted to a backend server. Even
+          the 'Save' function uses your browser's <code>localStorage</code>, which is a sandbox area on your own
+          computer.</p>
+
+        <h3>Q: Why am I seeing a broken image icon when I use local file paths?</h3>
+        <p>Modern web browsers have strict security policies (same-origin policy) that prevent a web page from accessing
+          files directly from your hard drive via standard paths like <code>C:\Users\Documents\image.png</code>. To
+          display images in your preview, you should use absolute URLs (e.g.,
+          <code>https://your-site.com/image.png</code>) or use the data URI scheme (Base64) to embed the image directly
+          into your HTML code.</p>
+
+        <h3>Q: Can I use CSS preprocessors like SASS or JavaScript frameworks like React?</h3>
+        <p>EasyHTML is primarily optimized for standard <strong>HTML5, CSS3, and Vanilla JavaScript</strong>. While you
+          can include external libraries by adding <code>&lt;script&gt;</code> or <code>&lt;link&gt;</code> tags from
+          CDNs, advanced compilation features for SASS or JSX aren't supported yet. We recommend using it for rapid
+          prototyping and learning the core building blocks of the web.</p>
+
+        <h3>Q: How can I share my code with others?</h3>
+        <p>Since we do not store code on a server, we don't have a 'Share Link' feature yet. However, the best way to
+          share is by using our <strong>'Download'</strong> feature. You can send the resulting <code>.html</code> file
+          to anyone, and they can open it in any browser or re-upload it here to continue editing.</p>
+
+      </article>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   </div>
-  <script src="ads.js"></script>
 </body>
+
 </html>

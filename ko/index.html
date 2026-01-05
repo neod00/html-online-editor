@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EasyHTML - Real-time HTML Editor & Preview</title>
-  <meta name="description"
-    content="Free online web editor providing real-time HTML editing and preview. Learn and create with examples and tutorials!">
+  <title>EasyHTML (이지 HTML) - 실시간 코드 편집 및 미리보기</title>
+  <meta name="description" content="실시간 HTML 편집과 미리보기를 제공하는 무료 웹 에디터. 예제, 튜토리얼, FAQ, 사용 가이드와 함께 학습과 제작을 동시에!">
   <meta name="google-site-verification" content="P6X5BpKy6Tqy78Teu6aFK1jQB1ZyyxpP9tFKHa4OOgA" />
-  <link rel="canonical" href="https://html-editor-pro.netlify.app/" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://html-editor-pro.netlify.app/ko/index.html" />
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/default.min.css">
@@ -21,7 +20,7 @@
     "name": "EasyHTML",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Web",
-    "description": "Online editor providing real-time HTML editing and preview with tutorials",
+    "description": "실시간 HTML 편집 및 미리보기 기능과 학습용 튜토리얼을 제공하는 온라인 에디터",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
   }
   </script>
@@ -36,18 +35,18 @@
           <h1>
             <div class="brand-logo"></div> EasyHTML
           </h1>
-          <span class="tagline">Real-time Editing & Preview</span>
+          <span class="tagline">실시간 편집 & 미리보기</span>
         </div>
         <nav class="header-nav">
-          <a href="guide.html" class="nav-link">Guide</a>
-          <a href="blog/index.html" class="nav-link">Blog</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="privacy.html" class="nav-link">Privacy</a>
-          <a href="terms.html" class="nav-link">Terms</a>
-          <a href="ko/index.html" class="nav-link" style="font-weight:bold; color:var(--primary)">KO</a>
+          <a href="guide.html" class="nav-link">가이드</a>
+          <a href="blog/index.html" class="nav-link">블로그</a>
+          <a href="about.html" class="nav-link">정보</a>
+          <a href="privacy.html" class="nav-link">개인정보</a>
+          <a href="terms.html" class="nav-link">이용약관</a>
+          <a href="../index.html" class="nav-link" style="font-weight:bold; color:var(--primary)">EN</a>
         </nav>
         <div class="header-controls">
-          <button id="themeToggle" class="theme-btn" title="Toggle Theme">
+          <button id="themeToggle" class="theme-btn" title="테마 변경">
             <i class="fas fa-moon"></i>
           </button>
         </div>
@@ -59,48 +58,48 @@
       <!-- 툴바 -->
       <div class="editor-toolbar">
         <div class="toolbar-section">
-          <button id="previewBtn" class="tool-btn primary" title="Preview (Ctrl+Enter)">
+          <button id="previewBtn" class="tool-btn primary" title="미리보기 (Ctrl+Enter)">
             <i class="fas fa-eye"></i>
-            <span>Preview</span>
+            <span>미리보기</span>
           </button>
-          <button id="formatBtn" class="tool-btn secondary" title="Format Code (Ctrl+Shift+F)">
+          <button id="formatBtn" class="tool-btn secondary" title="코드 포맷팅 (Ctrl+Shift+F)">
             <i class="fas fa-magic"></i>
-            <span>Format</span>
+            <span>포맷팅</span>
           </button>
-          <button id="clearBtn" class="tool-btn warning" title="Clear Content">
+          <button id="clearBtn" class="tool-btn warning" title="내용 지우기">
             <i class="fas fa-trash"></i>
-            <span>Clear</span>
+            <span>지우기</span>
           </button>
         </div>
 
         <div class="toolbar-section">
-          <button id="saveBtn" class="tool-btn success" title="Save Local (Ctrl+S)">
+          <button id="saveBtn" class="tool-btn success" title="로컬 저장 (Ctrl+S)">
             <i class="fas fa-save"></i>
-            <span>Save</span>
+            <span>저장</span>
           </button>
-          <button id="loadBtn" class="tool-btn info" title="Load Local (Ctrl+O)">
+          <button id="loadBtn" class="tool-btn info" title="로컬 불러오기 (Ctrl+O)">
             <i class="fas fa-folder-open"></i>
-            <span>Load</span>
+            <span>불러오기</span>
           </button>
           <input type="file" id="fileInput" accept=".html,.htm,.txt" style="display: none;">
-          <button id="uploadBtn" class="tool-btn info" title="Upload File">
+          <button id="uploadBtn" class="tool-btn info" title="파일 업로드">
             <i class="fas fa-upload"></i>
-            <span>Upload</span>
+            <span>업로드</span>
           </button>
-          <button id="downloadBtn" class="tool-btn success" title="Download File (Ctrl+D)">
+          <button id="downloadBtn" class="tool-btn success" title="파일 다운로드 (Ctrl+D)">
             <i class="fas fa-download"></i>
-            <span>Download</span>
+            <span>다운로드</span>
           </button>
         </div>
 
         <div class="toolbar-section">
-          <button id="sampleBtn" class="tool-btn secondary" title="Sample Code">
+          <button id="sampleBtn" class="tool-btn secondary" title="샘플 코드">
             <i class="fas fa-file-code"></i>
-            <span>Sample</span>
+            <span>샘플</span>
           </button>
-          <button id="fullscreenBtn" class="tool-btn secondary" title="Fullscreen (F11)">
+          <button id="fullscreenBtn" class="tool-btn secondary" title="전체화면 (F11)">
             <i class="fas fa-expand"></i>
-            <span>Fullscreen</span>
+            <span>전체화면</span>
           </button>
         </div>
       </div>
@@ -111,16 +110,16 @@
           <div class="panel-header">
             <div class="panel-title">
               <i class="fas fa-edit"></i>
-              <span>HTML Editor</span>
+              <span>HTML 편집기</span>
             </div>
             <div class="panel-info">
-              <span class="line-count">Line: 1</span>
-              <span class="char-count">Char: 0</span>
+              <span class="line-count">줄: 1</span>
+              <span class="char-count">문자: 0</span>
             </div>
           </div>
           <div class="editor-container">
             <textarea id="htmlEditor"
-              placeholder="Enter HTML code here...&#10;&#10;Example:&#10;&lt;!DOCTYPE html&gt;&#10;&lt;html&gt;&#10;&lt;head&gt;&#10;  &lt;title&gt;Title&lt;/title&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;  &lt;h1&gt;Hello!&lt;/h1&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;"></textarea>
+              placeholder="HTML 코드를 입력하세요...&#10;&#10;예시:&#10;&lt;!DOCTYPE html&gt;&#10;&lt;html&gt;&#10;&lt;head&gt;&#10;  &lt;title&gt;제목&lt;/title&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;  &lt;h1&gt;안녕하세요!&lt;/h1&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;"></textarea>
           </div>
         </div>
 
@@ -128,19 +127,19 @@
           <div class="panel-header">
             <div class="panel-title">
               <i class="fas fa-eye"></i>
-              <span>Real-time Preview</span>
+              <span>실시간 미리보기</span>
             </div>
             <div class="panel-controls">
-              <button id="refreshPreview" class="control-btn" title="Refresh Preview">
+              <button id="refreshPreview" class="control-btn" title="미리보기 새로고침">
                 <i class="fas fa-sync"></i>
               </button>
-              <button id="openInNewTab" class="control-btn" title="Open in New Tab">
+              <button id="openInNewTab" class="control-btn" title="새 탭에서 열기">
                 <i class="fas fa-external-link-alt"></i>
               </button>
             </div>
           </div>
           <div class="preview-container">
-            <iframe id="previewFrame" sandbox="allow-scripts allow-same-origin" title="Code Preview"></iframe>
+            <iframe id="previewFrame" sandbox="allow-scripts allow-same-origin" title="코드 미리보기"></iframe>
           </div>
         </div>
       </div>
@@ -150,30 +149,30 @@
     <section class="info-section">
       <div class="info-content">
         <div class="info-card">
-          <h3><i class="fas fa-rocket"></i> Quick Start</h3>
+          <h3><i class="fas fa-rocket"></i> 빠른 시작</h3>
           <ol>
-            <li>Enter HTML code in the editor</li>
-            <li>Check results with 'Preview' button</li>
-            <li>Clean up code with 'Format'</li>
+            <li>에디터에 HTML 코드를 입력하세요</li>
+            <li>'미리보기' 버튼으로 결과를 확인하세요</li>
+            <li>'포맷팅'으로 코드를 정리하세요</li>
           </ol>
-          <a href="guide.html" class="guide-link">View Detailed Guide →</a>
+          <a href="guide.html" class="guide-link">자세한 가이드 보기 →</a>
         </div>
 
         <div class="info-card">
-          <h3><i class="fas fa-lightbulb"></i> Key Features</h3>
+          <h3><i class="fas fa-lightbulb"></i> 주요 기능</h3>
           <ul>
-            <li>Real-time Preview</li>
-            <li>Auto Formatting</li>
-            <li>File Upload/Download</li>
-            <li>Local Save/Load</li>
+            <li>실시간 미리보기</li>
+            <li>코드 자동 포맷팅</li>
+            <li>파일 업로드/다운로드</li>
+            <li>로컬 저장/불러오기</li>
           </ul>
         </div>
 
         <!-- 구글 애드센스 광고 영역 -->
-        <div id="ad-bottom" class="ad-container" aria-label="Sponsored Links">
+        <div id="ad-bottom" class="ad-container" aria-label="스폰서 링크 영역">
           <div class="ad-placeholder">
             <i class="fas fa-ad"></i>
-            <span>Ad Space</span>
+            <span>광고 영역</span>
           </div>
         </div>
       </div>
@@ -184,13 +183,13 @@
       <div class="footer-content">
         <div class="footer-info">
           <p>&copy; 2025 EasyHTML</p>
-          <span class="safety-badge">100% Local Processing • Secure</span>
+          <span class="safety-badge">100% 로컬 처리 • 완전 안전</span>
         </div>
         <div class="footer-links">
-          <a href="about.html">About</a>
-          <a href="guide.html">Guide</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
+          <a href="about.html">정보</a>
+          <a href="guide.html">가이드</a>
+          <a href="privacy.html">개인정보</a>
+          <a href="terms.html">이용약관</a>
         </div>
       </div>
     </footer>
@@ -207,7 +206,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/foldgutter.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/xml-fold.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify-html.min.js"></script>
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
   <script src="ads.js"></script>
 </body>
 

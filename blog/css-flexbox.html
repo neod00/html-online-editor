@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering CSS Flexbox: A Practical Guide - EasyHTML</title>
+    <meta name="description"
+        content="Learn how to create flexible and responsive layouts easily using CSS Flexbox with practical examples.">
+    <link rel="canonical" href="https://html-editor-pro.netlify.app/blog/css-flexbox.html" />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><a href="../index.html"
+                            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                            <div class="brand-logo"></div> EasyHTML
+                        </a></h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">Guide</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">Blog</a>
+                    <a href="../about.html" class="nav-link">About</a>
+                    <a href="../../ko/blog/css-flexbox.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">KO</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="article-container">
+            <article class="prose">
+                <div class="breadcrumb">
+                    <a href="../index.html">Home</a> &gt; <a href="index.html">Blog</a> &gt; <span>CSS Flexbox</span>
+                </div>
+
+                <div class="article-header">
+                    <h1>Mastering CSS Flexbox: A Practical Guide</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> June 10, 2025</span>
+                        <span><i class="far fa-clock"></i> 7 min read</span>
+                        <span><i class="fas fa-tag"></i> Design</span>
+                    </div>
+                </div>
+
+                <p>Creating layouts in CSS used to be a nightmare of floats and clearfixes. Then came
+                    <strong>Flexbox</strong>. Today, it's the standard for building modern, responsive layouts
+                    effortlessly. In this guide, we'll break down the essentials of Flexbox.</p>
+
+                <h2>What is Flexbox?</h2>
+                <p>The Flexible Box Layout Module, or Flexbox, is a one-dimensional layout method for arranging items in
+                    rows or columns. It excelled at filling available space and aligning items perfectly without knowing
+                    their exact size.</p>
+
+                <h2>Getting Started: The Parent (Flex Container)</h2>
+                <p>To start using Flexbox, you simply apply <code>display: flex;</code> to a parent element. This turns
+                    the parent into a flex container and its immediate children into flex items.</p>
+
+                <h3>Important Parent Properties:</h3>
+                <ul>
+                    <li><strong>flex-direction</strong>: Sets the axis. <code>row</code> (default) or
+                        <code>column</code>.</li>
+                    <li><strong>justify-content</strong>: Aligns items along the main axis (usually horizontally).
+                        Common values: <code>center</code>, <code>space-between</code>, <code>flex-start</code>.</li>
+                    <li><strong>align-items</strong>: Aligns items along the cross axis (usually vertically). Think of
+                        it as centering items top-to-bottom.</li>
+                    <li><strong>flex-wrap</strong>: Allows items to wrap onto multiple lines if there isn't enough
+                        space.</li>
+                </ul>
+
+                <h2>The Children (Flex Items)</h2>
+                <p>You can also control individual items within the container.</p>
+                <ul>
+                    <li><strong>flex-grow</strong>: Defines the ability for a flex item to grow if necessary.</li>
+                    <li><strong>order</strong>: Changes the order in which items appear without changing the HTML.</li>
+                </ul>
+
+                <h2>Practical Example: Centering Everything</h2>
+                <p>The "Holy Grail" of CSS used to be centering a div perfectly. With Flexbox, it's just 3 lines of
+                    code:</p>
+                <pre><code>.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}</code></pre>
+
+                <h2>Conclusion</h2>
+                <p>Flexbox is a powerful tool that every web developer must master. It significantly reduces the amount
+                    of code needed for complex layouts and ensures your site looks great on any screen size. Try
+                    experimenting with Flexbox in our editor today!</p>
+
+            </article>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

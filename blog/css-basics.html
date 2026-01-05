@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics: First Steps in Web Design - EasyHTML</title>
+    <meta name="description"
+        content="Learn the basic concepts of CSS, selectors, and key style properties to design your own website.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><a href="../index.html"
+                            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                            <div class="brand-logo"></div> EasyHTML
+                        </a></h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">Guide</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">Blog</a>
+                    <a href="../about.html" class="nav-link">About</a>
+                    <a href="../../ko/blog/css-basics.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">KO</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="article-container">
+            <article class="prose">
+                <div class="breadcrumb">
+                    <a href="../index.html">Home</a> &gt; <a href="index.html">Blog</a> &gt; <span>CSS Basics</span>
+                </div>
+
+                <div class="article-header">
+                    <h1>CSS Basics: First Steps in Web Design</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> May 22, 2025</span>
+                        <span><i class="far fa-clock"></i> 12 min read</span>
+                        <span><i class="fas fa-tag"></i> CSS Design</span>
+                    </div>
+                </div>
+
+                <p>If you built the skeleton of the website with HTML, now it is time to dress it up with <strong>CSS
+                        (Cascading Style Sheets)</strong>. CSS handles all styling, from simple tasks like changing text
+                    colors to complex designs like setting the layout and adding animation effects.</p>
+
+                <h2>1. CSS Syntax Structure</h2>
+                <p>CSS is a language that defines <strong>Who (Selector)</strong> to change and <strong>How
+                        (Property)</strong>. The basic syntax is as follows:</p>
+                <pre><code class="language-css">h1 {
+  color: blue;
+  font-size: 24px;
+}</code></pre>
+                <ul>
+                    <li><strong>Selector</strong>: Selects the target to apply the style to. In the example above, the
+                        <code>h1</code> tag is the selector.</li>
+                    <li><strong>Property</strong>: The type of style you want to change (e.g., <code>color</code>,
+                        <code>font-size</code>).</li>
+                    <li><strong>Value</strong>: The specific value to apply to the property (e.g., <code>blue</code>,
+                        <code>24px</code>).</li>
+                </ul>
+
+                <h2>2. 3 Ways to Apply CSS</h2>
+                <h3>(1) Inline Style</h3>
+                <p>Using the <code>style</code> attribute directly inside HTML tags. It's good for quick use, but not
+                    recommended as it clutters the code.</p>
+                <pre><code class="language-html">&lt;h1 style="color: red;"&gt;Red Heading&lt;/h1&gt;</code></pre>
+
+                <h3>(2) Internal Style Sheet</h3>
+                <p>Writing a <code>&lt;style&gt;</code> tag inside the <code>&lt;head&gt;</code> of the HTML document.
+                    Useful when making simple pages.</p>
+
+                <h3>(3) External Style Sheet - Recommended!</h3>
+                <p>Creating a separate file with a <code>.css</code> extension and linking it. It is easiest to manage
+                    as styles can be shared across multiple pages.</p>
+                <pre><code class="language-html">&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+
+                <h2>3. Essential CSS Properties</h2>
+                <h3>Color and Background</h3>
+                <ul>
+                    <li><code>color</code>: Changes text color.</li>
+                    <li><code>background-color</code>: Changes background color.</li>
+                </ul>
+
+                <h3>Font and Text</h3>
+                <ul>
+                    <li><code>font-size</code>: Adjusts text size (using px, rem, etc.).</li>
+                    <li><code>font-weight</code>: Adjusts text thickness (bold, 400, 700, etc.).</li>
+                    <li><code>text-align</code>: Aligns text (left, center, right).</li>
+                </ul>
+
+                <h3>Box Model - Very Important!</h3>
+                <p>All elements on the web are made of rectangular boxes. These are the properties that handle these
+                    boxes.</p>
+                <ul>
+                    <li><code>width</code> / <code>height</code>: Width and Height</li>
+                    <li><code>margin</code>: <strong>Outer</strong> spacing of the box</li>
+                    <li><code>padding</code>: <strong>Inner</strong> spacing of the box</li>
+                    <li><code>border</code>: Border line</li>
+                </ul>
+
+                <h2>4. Practice: Making My Own Button</h2>
+                <p>Enter the following code into the editor to create a pretty button!</p>
+                <pre><code class="language-css">.my-btn {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.my-btn:hover {
+  background-color: #1d4ed8;
+}</code></pre>
+
+                <h2>Conclusion</h2>
+                <p>CSS is a language that has depth the more you learn it. Start with changing colors and sizes, and
+                    gradually expand to layout (Flexbox, Grid) and Responsive Web Design. Your website will transform as
+                    if touched by a professional.</p>
+
+            </article>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

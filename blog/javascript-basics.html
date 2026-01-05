@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics: Adding Interactivity to Your Web - EasyHTML</title>
+    <meta name="description"
+        content="Introduction to JavaScript for beginners. Learn about variables, functions, and how to make your website interactive.">
+    <link rel="canonical" href="https://html-edge-pro.netlify.app/blog/javascript-basics.html" />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><a href="../index.html"
+                            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                            <div class="brand-logo"></div> EasyHTML
+                        </a></h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">Guide</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">Blog</a>
+                    <a href="../about.html" class="nav-link">About</a>
+                    <a href="../../ko/blog/javascript-basics.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">KO</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="article-container">
+            <article class="prose">
+                <div class="breadcrumb">
+                    <a href="../index.html">Home</a> &gt; <a href="index.html">Blog</a> &gt; <span>JavaScript
+                        Basics</span>
+                </div>
+
+                <div class="article-header">
+                    <h1>JavaScript Basics: Adding Interactivity to Your Web</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> June 18, 2025</span>
+                        <span><i class="far fa-clock"></i> 8 min read</span>
+                        <span><i class="fas fa-tag"></i> Programming</span>
+                    </div>
+                </div>
+
+                <p>If HTML is the skeleton and CSS is the skin, then <strong>JavaScript (JS)</strong> is the muscle.
+                    It's what makes a website move, react, and come to life. In this post, we'll explore why JS is the
+                    power of the web.</p>
+
+                <h2>What is JavaScript?</h2>
+                <p>JavaScript is a programming language that allows you to implement complex features on web pages. From
+                    updating content in real-time to interactive maps and animated graphics, JS is everywhere.</p>
+
+                <h2>Core Concepts</h2>
+                <h3>1. Variables (Storage boxes)</h3>
+                <p>Variables are used to store data that can be used later. You can declare them using <code>let</code>
+                    or <code>const</code>.</p>
+                <pre><code>let name = "EasyHTML User";
+const age = 25;</code></pre>
+
+                <h3>2. Functions (Action recipes)</h3>
+                <p>Functions are blocks of code designed to perform a particular task. You "call" the function whenever
+                    you need that task done.</p>
+                <pre><code>function sayHello() {
+  alert("Hello World!");
+}</code></pre>
+
+                <h3>3. Event Listeners (Reacting to users)</h3>
+                <p>This is where the magic happens. You can tell JS to wait for a user action, like a click, and then
+                    run a function.</p>
+                <pre><code>document.getElementById("myButton").addEventListener("click", sayHello);</code></pre>
+
+                <h2>DOM Manipulation</h2>
+                <p>The "DOM" (Document Object Model) is how JS sees your HTML. Using JS, you can change text, styles, or
+                    even remove HTML elements completely without the user ever refreshing the page.</p>
+
+                <h2>Why Learn JavaScript?</h2>
+                <p>JS is the most popular programming language in the world. Learning the basics opens the door to
+                    creating sophisticated web applications, mobile apps, and even server-side programming (Node.js).
+                </p>
+
+                <h2>Conclusion</h2>
+                <p>JavaScript transforms a static page into an interactive experience. It might seem daunting at first,
+                    but once you understand how to manipulate the DOM, the possibilities are endless. Stay tuned for
+                    more deep dives into JS!</p>
+
+            </article>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

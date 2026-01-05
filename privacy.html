@@ -1,41 +1,84 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>개인정보처리방침 | HTML Online Editor</title>
-  <meta name="description" content="HTML Online Editor 개인정보 처리방침">
+  <title>Privacy Policy - EasyHTML</title>
+  <link rel="canonical" href="https://html-editor-pro.netlify.app/privacy.html" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <header class="header">
-      <h1>개인정보처리방침</h1>
-      <p>본 서비스는 로그인이나 회원가입 없이 사용 가능하며, 서버에 사용자의 코드를 저장하지 않습니다.</p>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <h1><a href="index.html"
+            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+            <div class="brand-logo"></div> EasyHTML
+          </a></h1>
+        <nav class="header-nav">
+          <a href="guide.html" class="nav-link">Guide</a>
+          <a href="blog/index.html" class="nav-link">Blog</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="privacy.html" class="nav-link active" style="color:var(--primary)">Privacy</a>
+          <a href="terms.html" class="nav-link">Terms</a>
+          <a href="ko/privacy.html" class="nav-link" style="font-weight:bold; color:var(--primary)">KO</a>
+        </nav>
+        <div class="header-controls">
+          <button id="themeToggle" class="theme-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
     </header>
 
-    <section class="content-section">
-      <h2>수집하는 정보</h2>
-      <p>서비스 제공을 위해 서버에 개인 정보를 저장하지 않습니다. 브라우저 로컬 저장소는 사용자의 선택에 따라 로컬 기기에만 저장됩니다.</p>
-      <div id="ad-inline-1" class="ad-slot" aria-label="스폰서 링크"></div>
-    </section>
+    <main class="blog-container">
+      <article class="prose">
+        <h1>Privacy Policy</h1>
+        <p>Last Updated: January 5, 2025</p>
 
-    <section class="content-section">
-      <h2>쿠키 및 로컬 스토리지</h2>
-      <p>테마 및 자동 저장 기능을 위해 브라우저 로컬 스토리지를 사용할 수 있습니다. 이 정보는 기기 내에서만 관리됩니다.</p>
-    </section>
+        <p>EasyHTML (the "Service") values your privacy and complies with relevant laws including the "Act on Promotion
+          of Information and Communications Network Utilization and Information Protection".</p>
 
-    <section class="content-section">
-      <h2>문의</h2>
-      <p>문의는 저장소 이슈 또는 제공된 연락처를 통해 가능합니다.</p>
-    </section>
+        <h2>1. Personal Information Collected</h2>
+        <p>This service can be used without registration or login details. We do not store any personal information on
+          our servers. However, the following information may be automatically generated and collected during service
+          usage:</p>
+        <ul>
+          <li>IP Address, Cookies, Visit time, Service usage records</li>
+        </ul>
 
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="index.html">홈으로</a>
+        <h2>2. Cookies</h2>
+        <p>The Service uses 'cookies' to store and retrieve usage information to provide personalized services.</p>
+        <ul>
+          <li><strong>Purpose of Cookies</strong>: Used for user convenience such as dark mode settings and local
+            temporary storage of code.</li>
+          <li><strong>Rejecting Cookies</strong>: Users have the option to accept or reject cookies through their web
+            browser settings.</li>
+        </ul>
+
+        <h2>3. Advertising</h2>
+        <p>This Service may display advertisements via Google AdSense. Third-party vendors, including Google, use
+          cookies to serve ads based on a user's prior visits to your website or other websites. Users may opt out of
+          personalized advertising by visiting Google Ads Settings.</p>
+
+        <h2>4. Data Protection</h2>
+        <p>All code (HTML, CSS, JS) entered into the editor is processed and stored only within the user's browser
+          (Local Storage) and is not transmitted to or stored on the operator's server.</p>
+
+      </article>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   </div>
-  <script src="ads.js"></script>
 </body>
+
 </html>

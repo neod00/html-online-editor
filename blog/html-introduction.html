@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics: Perfect Guide for Beginners - EasyHTML</title>
+    <meta name="description"
+        content="What is HTML? Learn about the basic structure, essential tags, and semantic markup of HTML, the starting point of web development.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><a href="../index.html"
+                            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                            <div class="brand-logo"></div> EasyHTML
+                        </a></h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">Guide</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">Blog</a>
+                    <a href="../about.html" class="nav-link">About</a>
+                    <a href="../../ko/blog/html-introduction.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">KO</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="article-container">
+            <article class="prose">
+                <div class="breadcrumb">
+                    <a href="../index.html">Home</a> &gt; <a href="index.html">Blog</a> &gt; <span>HTML Basics</span>
+                </div>
+
+                <div class="article-header">
+                    <h1>HTML Basics: Perfect Guide for Beginners</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> May 20, 2025</span>
+                        <span><i class="far fa-clock"></i> 10 min read</span>
+                        <span><i class="fas fa-tag"></i> HTML Study</span>
+                    </div>
+                </div>
+
+                <p>Welcome to the world of web development! If you want to build a website, the first language you must
+                    learn is <strong>HTML (HyperText Markup Language)</strong>. In this article, we will delve deep into
+                    what HTML is, how it is structured, and the essential tags you must know.</p>
+
+                <h2>1. What is HTML?</h2>
+                <p>HTML is the markup language responsible for the <strong>Structure</strong> of a web page. Just as we
+                    erect a steel frame first when building a building, we need to frame it with HTML when building a
+                    website. CSS is for interior design (styling) on that frame, and JavaScript gives function
+                    (behavior) like turning on lights or opening windows.</p>
+                <blockquote>
+                    "HTML is not a programming language, but a markup language that tells the browser how content should
+                    be displayed."
+                </blockquote>
+
+                <h2>2. Basic Structure of an HTML Document</h2>
+                <p>All HTML documents follow standard structures like the following. Copy and paste this code into the
+                    editor.</p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First Website&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello!&lt;/h1&gt;
+    &lt;p&gt;This is the body content.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <h3>Key Components Description</h3>
+                <ul>
+                    <li><strong>&lt;!DOCTYPE html&gt;</strong>: Informs the browser that this document follows the
+                        latest HTML5 standards.</li>
+                    <li><strong>&lt;html&gt;</strong>: The top-level element that wraps the entire page.</li>
+                    <li><strong>&lt;head&gt;</strong>: Contains information for search engines or browsers (metadata,
+                        title, stylesheet links, etc.) that are not visible on the screen.</li>
+                    <li><strong>&lt;body&gt;</strong>: This is where text, images, buttons, etc. actually shown to the
+                        user go.</li>
+                </ul>
+
+                <h2>3. 5 Essential Tags You Must Know</h2>
+                <p>There are numerous tags in HTML, but the following 5 are most frequently used, so you must master
+                    them.</p>
+
+                <h3>(1) Heading Tags (&lt;h1&gt; ~ &lt;h6&gt;)</h3>
+                <p>Represents a Heading. <code>&lt;h1&gt;</code> is the largest heading, and the smaller the number, the
+                    smaller the heading. Search engines recognize the <code>&lt;h1&gt;</code> tag as the core topic of
+                    the page, so it is recommended to use it only once per page.</p>
+
+                <h3>(2) Paragraph Tag (&lt;p&gt;)</h3>
+                <p>Used to create text paragraphs. It is important to divide paragraphs appropriately for readability
+                    when writing long texts.</p>
+
+                <h3>(3) Link Tag (&lt;a&gt;)</h3>
+                <p>Creates a hyperlink (Anchor) to move to another page.</p>
+                <pre><code class="language-html">&lt;a href="https://google.com" target="_blank"&gt;Go to Google&lt;/a&gt;</code></pre>
+
+                <h3>(4) Image Tag (&lt;img&gt;)</h3>
+                <p>Inserts an image. Put the image address in the <code>src</code> attribute and the image description
+                    in the <code>alt</code> attribute.</p>
+                <pre><code class="language-html">&lt;img src="cat.jpg" alt="Cute Cat Photo"&gt;</code></pre>
+
+                <h3>(5) List Tags (&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;)</h3>
+                <p>Unordered lists use <code>&lt;ul&gt;</code>, ordered lists use <code>&lt;ol&gt;</code>, and each item
+                    is wrapped in <code>&lt;li&gt;</code>.</p>
+
+                <h2>4. Importance of Semantic Markup</h2>
+                <p>In modern web development, it is important to use tags that fit the <strong>Meaning
+                        (Semantic)</strong>, not just how they look. For example, using <code>&lt;header&gt;</code> for
+                    headers, <code>&lt;main&gt;</code> for the body, and <code>&lt;footer&gt;</code> for the footer
+                    instead of just using <code>&lt;div&gt;</code> is good for Search Engine Optimization (SEO) and
+                    improves code readability.</p>
+
+                <h2>Conclusion</h2>
+                <p>You have now laid the foundation for HTML. The next step is to learn CSS to decorate your site
+                    beautifully. Use our <strong>EasyHTML</strong> to practice the tags you learned today! Seeing is
+                    believing; typing the code yourself is the best way to learn.</p>
+
+            </article>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

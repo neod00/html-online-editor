@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기초: 웹에 생명력을 불어넣는 법 - EasyHTML</title>
+    <meta name="description" content="초보자를 위한 자바스크립트 입문 가이드. 변수, 함수, 그리고 웹사이트를 대화형으로 만드는 기초 방법을 배워보세요.">
+    <link rel="canonical" href="https://html-editor-pro.netlify.app/ko/blog/javascript-basics.html" />
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><a href="../index.html"
+                            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                            <div class="brand-logo"></div> EasyHTML
+                        </a></h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">가이드</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">블로그</a>
+                    <a href="../about.html" class="nav-link">정보</a>
+                    <a href="../../blog/javascript-basics.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">EN</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="article-container">
+            <article class="prose">
+                <div class="breadcrumb">
+                    <a href="../index.html">홈</a> &gt; <a href="index.html">블로그</a> &gt; <span>자바스크립트 기초</span>
+                </div>
+
+                <div class="article-header">
+                    <h1>자바스크립트 기초: 웹에 생명력을 불어넣는 법</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 2025년 6월 18일</span>
+                        <span><i class="far fa-clock"></i> 8분 읽기</span>
+                        <span><i class="fas fa-tag"></i> 프로그래밍</span>
+                    </div>
+                </div>
+
+                <p>HTML이 해골(구조)이고 CSS가 피부(디자인)라면, <strong>자바스크립트(JS)</strong>는 근육입니다. 웹사이트를 움직이게 하고, 반응하게 하며, 살아있게 만드는
+                    요소죠. 이번 포스트에서는 왜 JS가 웹의 힘인지 조명해 보겠습니다.</p>
+
+                <h2>자바스크립트란 무엇인가요?</h2>
+                <p>자바스크립트는 웹 페이지에 복잡한 기능을 구현할 수 있게 해주는 프로그래밍 언어입니다. 실시간 콘텐츠 업데이트부터 대화형 지도, 애니메이션 그래픽까지 JS의 손길이 닿지 않는 곳이
+                    없습니다.</p>
+
+                <h2>핵심 개념</h2>
+                <h3>1. 변수 (데이터 보관함)</h3>
+                <p>변수는 나중에 사용할 데이터를 저장하는 데 쓰입니다. <code>let</code>이나 <code>const</code>를 사용하여 선언합니다.</p>
+                <pre><code>let name = "EasyHTML 사용자";
+const age = 25;</code></pre>
+
+                <h3>2. 함수 (실행 레시피)</h3>
+                <p>함수는 특정 작업을 수행하도록 설계된 코드 블록입니다. 해당 작업이 필요할 때마다 함수를 "호출"하여 사용합니다.</p>
+                <pre><code>function sayHello() {
+  alert("안녕하세요!");
+}</code></pre>
+
+                <h3>3. 이벤트 리스너 (사용자에게 반응하기)</h3>
+                <p>여기서 마법이 일어납니다. 클릭과 같은 사용자의 동작을 기다렸다가 특정 함수를 실행하도록 설정할 수 있습니다.</p>
+                <pre><code>document.getElementById("myButton").addEventListener("click", sayHello);</code></pre>
+
+                <h2>DOM 조작</h2>
+                <p>DOM(Document Object Model)은 JS가 HTML을 바라보는 방식입니다. JS를 사용하면 텍스트, 스타일을 바꾸거나 심지어 페이지 새로고침 없이 HTML 요소를
+                    완전히 삭제할 수도 있습니다.</p>
+
+                <h2>왜 자바스크립트를 배워야 할까요?</h2>
+                <p>JS는 세계에서 가장 인기 있는 프로그래밍 언어입니다. 기초를 익히면 정교한 웹 애플리케이션, 모바일 앱, 그리고 서버 사이드 프로그래밍(Node.js)까지 넘나들 수 있는 문이
+                    열립니다.</p>
+
+                <h2>결론</h2>
+                <p>자바스크립트는 정적인 페이지를 역동적인 경험으로 변화시킵니다. 처음에는 조금 어렵게 느껴질 수 있지만, DOM을 조작하는 원리를 이해하고 나면 가능성은 무궁무진해집니다. 앞으로 더
+                    깊이 있는 JS 활용 팁을 기대해 주세요!</p>
+
+            </article>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

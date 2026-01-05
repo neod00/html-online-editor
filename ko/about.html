@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정보 및 소개 - EasyHTML (이지 HTML)</title>
+  <meta name="description"
+    content="모두를 위해 설계된 전문 웹 에디터, EasyHTML에 대해 알아보세요. 우리의 미션은 전 세계 학생과 개발자들이 웹 개발을 더 쉽고 안전하게 배우도록 돕는 것입니다.">
+  <link rel="canonical" href="https://html-editor-pro.netlify.app/ko/about.html" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo-section">
+          <h1><a href="index.html"
+              style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+              <div class="brand-logo"></div> EasyHTML
+            </a></h1>
+        </div>
+        <nav class="header-nav">
+          <a href="guide.html" class="nav-link">가이드</a>
+          <a href="blog/index.html" class="nav-link">블로그</a>
+          <a href="about.html" class="nav-link active" style="color:var(--primary)">정보</a>
+          <a href="privacy.html" class="nav-link">개인정보</a>
+          <a href="terms.html" class="nav-link">이용약관</a>
+          <a href="../about.html" class="nav-link" style="font-weight:bold; color:var(--primary)">EN</a>
+        </nav>
+        <div class="header-controls">
+          <button id="themeToggle" class="theme-btn" title="테마 변경">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="blog-container">
+      <article class="prose">
+        <div class="blog-header" style="text-align: left; margin-bottom: var(--spacing-xl);">
+          <h1>EasyHTML 소개</h1>
+          <p>더 나은 웹 세상을 위한 작은 도구</p>
+        </div>
+
+        <h2>우리의 미션</h2>
+        <p><strong>"웹 개발 교육은 모두에게 평등하고 안전해야 합니다."</strong></p>
+        <p>EasyHTML은 웹 개발의 진입 장벽을 낮추기 위해 탄생했습니다. 우리는 학생, 교육자, 그리고 개발자들이 복잡한 설치 없이 브라우저에서 즉시 실험할 수 있는 완벽한 환경을 제공합니다. 최신
+          브라우저 기술을 활용하여 성능과 프라이버시를 동시에 잡은 최적의 도구를 지향합니다.</p>
+
+        <h2>전문적인 품질 표준</h2>
+        <p>EasyHTML은 단순한 웹 도구를 넘어 전문적인 품질을 추구합니다. CodeMirror 및 js-beautify와 같은 업계 표준 라이브러리를 통합하여 최상의 코딩 경험을 제공합니다.
+          초보자에게는 친숙한 학습 도구로, 전문가에게는 신속한 프로토타이핑 도구로 사랑받는 플랫폼이 되고자 합니다.</p>
+
+        <h2>주요 특징</h2>
+        <div class="blog-grid" style="margin-top: var(--spacing-lg);">
+          <div class="article-card" style="padding: var(--spacing-lg);">
+            <h3 style="margin-top: 0; display:flex; align-items:center; gap:10px;"><i class="fas fa-bolt"
+                style="color:var(--warning)"></i> 즉각적인 피드백</h3>
+            <p style="margin-bottom:0">코드를 입력하는 순간 미리보기가 갱신됩니다. 나의 코드가 어떻게 화면에 그려지는지 실시간으로 확인하며 학습 효율을 높이세요.</p>
+          </div>
+          <div class="article-card" style="padding: var(--spacing-lg);">
+            <h3 style="margin-top: 0; display:flex; align-items:center; gap:10px;"><i class="fas fa-shield-alt"
+                style="color:var(--success)"></i> 강력한 보안</h3>
+            <p style="margin-bottom:0">서버 전송 없이 모든 처리가 사용자의 브라우저 내에서 이루어집니다. 여러분의 소중한 코드는 외부로 유출되지 않습니다.</p>
+          </div>
+          <div class="article-card" style="padding: var(--spacing-lg);">
+            <h3 style="margin-top: 0; display:flex; align-items:center; gap:10px;"><i class="fas fa-mobile-alt"
+                style="color:var(--primary)"></i> 반응형 디자인</h3>
+            <p style="margin-bottom:0">PC, 태블릿, 스마트폰 어디서든 쾌적하게 사용할 수 있습니다. 이동 중에도 떠오르는 아이디어를 바로 코드로 옮겨보세요.</p>
+          </div>
+        </div>
+
+        <h2>문의하기</h2>
+        <p>질문, 피드백 또는 파트너십 문의가 있으신가요? 저희 팀은 개발자 경험을 개선하기 위해 항상 노력하고 있습니다. 아래 연락처로 언제든 연락 주세요.</p>
+        <p style="font-weight: bold;"><i class="fas fa-envelope"></i> help@openbrain.inc</p>
+
+      </article>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

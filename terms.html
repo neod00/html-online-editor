@@ -1,36 +1,85 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이용약관 | HTML Online Editor</title>
-  <meta name="description" content="HTML Online Editor 이용약관">
+  <title>Terms of Service - EasyHTML</title>
+  <link rel="canonical" href="https://html-editor-pro.netlify.app/terms.html" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <header class="header">
-      <h1>이용약관</h1>
-      <p>본 도구는 교육 및 제작 목적의 무료 웹 애플리케이션입니다.</p>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <h1><a href="index.html"
+            style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+            <div class="brand-logo"></div> EasyHTML
+          </a></h1>
+        <nav class="header-nav">
+          <a href="guide.html" class="nav-link">Guide</a>
+          <a href="blog/index.html" class="nav-link">Blog</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="privacy.html" class="nav-link">Privacy</a>
+          <a href="terms.html" class="nav-link active" style="color:var(--primary)">Terms</a>
+          <a href="ko/terms.html" class="nav-link" style="font-weight:bold; color:var(--primary)">KO</a>
+        </nav>
+        <div class="header-controls">
+          <button id="themeToggle" class="theme-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
     </header>
 
-    <section class="content-section">
-      <h2>책임</h2>
-      <p>사용자는 본 도구를 통해 생성한 콘텐츠에 대한 모든 책임을 집니다.</p>
-    </section>
+    <main class="blog-container">
+      <article class="prose">
+        <h1>Terms of Service</h1>
+        <p>Last Updated: January 5, 2025</p>
 
-    <section class="content-section">
-      <h2>저작권</h2>
-      <p>사용자가 업로드한 파일 및 작성한 코드의 저작권은 사용자에게 있습니다.</p>
-    </section>
+        <h2>1. Purpose</h2>
+        <p>These terms regulate the use, rights, obligations, and responsibilities of EasyHTML (hereinafter "Service")
+          and its users.</p>
 
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="index.html">홈으로</a>
-        <a href="privacy.html">개인정보처리방침</a>
+        <h2>2. Service Provision</h2>
+        <p>The Service provides free web-based HTML, CSS, and JavaScript code editing and preview functions. The
+          contents of the Service may change at the discretion of the operator, and important changes will be announced
+          on the website.</p>
+
+        <h2>3. Copyright & Liability</h2>
+        <ul>
+          <li><strong>Copyright</strong>: The user owns the copyright to the code they write. The Service claims no
+            rights to the user's code.</li>
+          <li><strong>Limitation of Liability</strong>: This Service is provided "AS-IS". The provider is not
+            responsible for any data loss or other damages resulting from the use of the service. Please assume
+            responsibility for backing up your important data.</li>
+        </ul>
+
+        <h2>4. Prohibited Acts</h2>
+        <p>Users must not engage in the following acts:</p>
+        <ul>
+          <li>Interfering with the normal operation of the service (hacking, spreading viruses, etc.)</li>
+          <li>Writing code that infringes on others' rights or violates laws</li>
+          <li>Using the service to create or distribute illegal websites</li>
+        </ul>
+
+        <h2>5. Revisions</h2>
+        <p>The Service may revise these terms within the scope of applicable laws. Changed terms become effective upon
+          announcement on the website.</p>
+
+      </article>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   </div>
-  <script src="ads.js"></script>
 </body>
+
 </html>

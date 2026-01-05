@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블로그 - EasyHTML (이지 HTML)</title>
+    <meta name="description" content="웹 개발, HTML 태그, CSS 스타일링, 에디터 활용법 등 유용한 정보를 제공하는 블로그입니다.">
+    <link rel="canonical" href="https://html-editor-pro.netlify.app/ko/blog/index.html" />
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- 헤더 -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1><a href="../index.html"
+                        style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                        <div class="brand-logo"></div> EasyHTML
+                    </a></h1>
+                <nav class="header-nav">
+                    <a href="../guide.html" class="nav-link">가이드</a>
+                    <a href="index.html" class="nav-link active" style="color:var(--primary)">블로그</a>
+                    <a href="../about.html" class="nav-link">정보</a>
+                    <a href="../privacy.html" class="nav-link">개인정보</a>
+                    <a href="../terms.html" class="nav-link">이용약관</a>
+                    <a href="../../blog/index.html" class="nav-link"
+                        style="font-weight:bold; color:var(--primary)">EN</a>
+                </nav>
+                <div class="header-controls">
+                    <button id="themeToggle" class="theme-btn" title="테마 변경">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="blog-container">
+            <div class="blog-header">
+                <h1>웹 개발 지식 저장소</h1>
+                <p>HTML, CSS, 그리고 웹 에디터 활용의 모든 것</p>
+            </div>
+
+            <div class="blog-grid">
+                <!-- 아티클 1 -->
+                <article class="article-card">
+                    <div class="article-content">
+                        <span class="article-tag">기초 가이드</span>
+                        <h2 class="article-title">
+                            <a href="html-introduction.html" style="text-decoration:none; color:inherit;">HTML 기초: 초보자를
+                                위한 완벽 입문 가이드</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            웹 페이지의 뼈대가 되는 HTML의 기본 개념부터 필수 태그 활용법까지 상세히 알아봅니다.
+                        </p>
+                        <a href="html-introduction.html" class="article-link">
+                            읽기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 아티클 2 -->
+                <article class="article-card">
+                    <div class="article-content">
+                        <span class="article-tag">CSS 스타일링</span>
+                        <h2 class="article-title">
+                            <a href="css-basics.html" style="text-decoration:none; color:inherit;">CSS 시작하기: 웹사이트 디자인의
+                                첫걸음</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            CSS 선택자, 프로퍼티, 그리고 레이아웃의 기초를 익혀 나만의 스타일리시한 웹사이트를 만들어보세요.
+                        </p>
+                        <a href="css-basics.html" class="article-link">
+                            읽기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 아티클 3 -->
+                <article class="article-card">
+                    <div class="article-content">
+                        <span class="article-tag">에디터 꿀팁</span>
+                        <h2 class="article-title">
+                            <a href="editor-tips.html" style="text-decoration:none; color:inherit;">HTML 에디터 200% 활용하는
+                                전문가의 팁</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            실시간 미리보기, 자동 완성, 포맷팅 기능을 활용하여 코딩 생산성을 극대화하는 방법을 소개합니다.
+                        </p>
+                        <a href="editor-tips.html" class="article-link">
+                            읽기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 아티클 4 -->
+                <article class="article-card">
+                    <div class="article-content">
+                        <span class="article-tag">SEO</span>
+                        <h2 class="article-title">
+                            <a href="semantic-html.html" style="text-decoration:none; color:inherit;">시맨틱 HTML: SEO를 위해
+                                꼭 알아야 할 것들</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            시맨틱 HTML 태그의 중요성과 이것이 어떻게 웹사이트의 검색 엔진 순위를 향상시키는지 알아보세요.
+                        </p>
+                        <a href="semantic-html.html" class="article-link">
+                            읽기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 아티클 5 -->
+                <article class="article-card">
+                    <div class="article-content">
+                        <span class="article-tag">디자인</span>
+                        <h2 class="article-title">
+                            <a href="css-flexbox.html" style="text-decoration:none; color:inherit;">CSS Flexbox 완벽 가이드:
+                                쉽고 빠른 레이아웃</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            실용적인 예제와 함께 CSS Flexbox를 사용하여 유연하고 반응형 레이아웃을 만드는 법을 배워보세요.
+                        </p>
+                        <a href="css-flexbox.html" class="article-link">
+                            읽기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 아티클 6 -->
+                <article class="article-card">
+                    <div class="article-content">
+                        <span class="article-tag">프로그래밍</span>
+                        <h2 class="article-title">
+                            <a href="javascript-basics.html" style="text-decoration:none; color:inherit;">자바스크립트 기초: 웹에
+                                생명력을 불어넣는 법</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            변수, 함수, 그리고 웹사이트를 대화형으로 만드는 기초 방법을 배워보세요.
+                        </p>
+                        <a href="javascript-basics.html" class="article-link">
+                            읽기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 아티클 7 -->
+                <article class="article-card">
+                    <div class="article-content">
+                        <span class="article-tag">접근성</span>
+                        <h2 class="article-title">
+                            <a href="web-accessibility.html" style="text-decoration:none; color:inherit;">개발자를 위한 웹 접근성
+                                핵심 가이드</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            웹 접근성(A11y)의 핵심 원칙을 이해하고 누구나 사용할 수 있는 포용적인 웹사이트를 구축해보세요.
+                        </p>
+                        <a href="web-accessibility.html" class="article-link">
+                            읽기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- 푸터 -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 EasyHTML</p>
+                    <span class="safety-badge">100% 로컬 처리 • 완전 안전</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../about.html">정보</a>
+                    <a href="../guide.html">가이드</a>
+                    <a href="../privacy.html">개인정보</a>
+                    <a href="../terms.html">이용약관</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../../script.js"></script>
+</body>
+
+</html>

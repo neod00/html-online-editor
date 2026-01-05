@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사용 가이드 - EasyHTML (이지 HTML)</title>
+  <meta name="description" content="EasyHTML 사용을 위한 종합 가이드입니다. 실시간 에디터 인터페이스, 필수 단축키 사용법, 파일 관리 및 보안 수칙에 대해 자세히 알아보세요.">
+  <link rel="canonical" href="https://html-editor-pro.netlify.app/ko/guide.html" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo-section">
+          <h1><a href="index.html"
+              style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+              <div class="brand-logo"></div> EasyHTML
+            </a></h1>
+        </div>
+        <nav class="header-nav">
+          <a href="guide.html" class="nav-link active" style="color:var(--primary)">가이드</a>
+          <a href="blog/index.html" class="nav-link">블로그</a>
+          <a href="about.html" class="nav-link">정보</a>
+          <a href="privacy.html" class="nav-link">개인정보</a>
+          <a href="terms.html" class="nav-link">이용약관</a>
+          <a href="../guide.html" class="nav-link" style="font-weight:bold; color:var(--primary)">EN</a>
+        </nav>
+        <div class="header-controls">
+          <button id="themeToggle" class="theme-btn" title="테마 변경">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="blog-container">
+      <article class="prose">
+        <div class="blog-header" style="text-align: left; margin-bottom: var(--spacing-xl);">
+          <h1>사용 가이드 & 문서</h1>
+          <p>EasyHTML을 100% 활용하기 위한 상세 매뉴얼입니다.</p>
+        </div>
+
+        <h2>1. 인터페이스 소개</h2>
+        <p>EasyHTML은 직관적인 2분할 화면을 제공합니다.</p>
+        <ul>
+          <li><strong>좌측 패널 (코드 에디터)</strong>: HTML, CSS, JavaScript 코드를 입력하는 곳입니다. 실시간 문법 강조(Syntax Highlighting) 기능을
+            지원합니다.</li>
+          <li><strong>우측 패널 (미리보기)</strong>: 작성한 코드의 결과물이 실시간으로 표시됩니다.</li>
+          <li><strong>상단 툴바</strong>: 자주 사용하는 기능(저장, 불러오기, 포맷팅 등)을 버튼으로 모아두었습니다.</li>
+        </ul>
+
+        <h2>2. 주요 기능 및 단축키</h2>
+        <p>빠른 작업을 위해 다음 단축키를 익혀두시는 것을 추천합니다.</p>
+
+        <div
+          style="background: var(--bg-tertiary); padding: var(--spacing-lg); border-radius: 8px; margin-bottom: var(--spacing-lg);">
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-medium);">
+                <th style="text-align: left; padding: 10px;">기능</th>
+                <th style="text-align: left; padding: 10px;">단축키 (Windows/Mac)</th>
+                <th style="text-align: left; padding: 10px;">설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 10px;">미리보기 갱신</td>
+                <td style="padding: 10px;"><code>Ctrl + Enter</code></td>
+                <td style="padding: 10px;">미리보기 화면을 강제로 새로고침합니다.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 10px;">코드 포맷팅</td>
+                <td style="padding: 10px;"><code>Ctrl + Shift + F</code></td>
+                <td style="padding: 10px;">들여쓰기를 자동으로 정리하여 코드를 예쁘게 만듭니다.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-light);">
+                <td style="padding: 10px;">저장</td>
+                <td style="padding: 10px;"><code>Ctrl + S</code></td>
+                <td style="padding: 10px;">브라우저 로컬 스토리지에 임시 저장합니다.</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px;">불러오기</td>
+                <td style="padding: 10px;"><code>Ctrl + O</code></td>
+                <td style="padding: 10px;">임시 저장된 코드를 불러옵니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>3. 파일 관리</h2>
+        <h3>파일 업로드</h3>
+        <p>기존에 작성한 HTML 파일이 있다면 <strong>[업로드]</strong> 버튼을 누르거나, 파일을 에디터 영역으로 드래그 앤 드롭하세요. 파일 내용이 에디터에 자동으로 입력됩니다.</p>
+
+        <h3>파일 다운로드</h3>
+        <p>작업이 끝났다면 <strong>[다운로드]</strong> 버튼을 눌러 결과물을 <code>.html</code> 파일로 저장할 수 있습니다. 이 파일은 모든 웹 브라우저에서 열어볼 수 있습니다.
+        </p>
+
+        <h2>4. 자주 묻는 질문 (FAQ)</h2>
+        <h3>Q: 편집 과정에서 나의 소스 코드가 서버에 저장되나요?</h3>
+        <p>아니요. <strong>EasyHTML</strong>의 핵심 원칙 중 하나는 사용자의 개인정보와 데이터 주권을 존중하는 것입니다. 본 애플리케이션은 <strong>100% 클라이언트
+            사이드</strong>에서 동작합니다. 코드를 입력, 포맷팅 또는 미리보기할 때 모든 로직은 사용자의 브라우저 메모리 내에서만 실행됩니다. 어떠한 데이터도 외부 서버로 전송되지 않으며, '저장'
+          기능 역시 사용자의 컴퓨터에 있는 안전한 영역인 <code>localStorage</code>를 사용합니다.</p>
+
+        <h3>Q: 로컬 이미지 경로를 사용했을 때 이미지가 엑박으로 떠요.</h3>
+        <p>최신 웹 브라우저는 보안 정책(SOP)에 따라 웹 페이지가 사용자의 하드 드라이브에 있는 파일들(예: <code>C:\Users\Documents\image.png</code>)에 직접 접근하는
+          것을 차단합니다. 미리보기에서 이미지를 정상적으로 출력하려면 웹상에 업로드된 URL(예: <code>https://your-site.com/image.png</code>)을 사용하거나, 이미지를
+          Base64 데이터 형식을 변환하여 HTML 코드 내에 직접 포함시켜야 합니다.</p>
+
+        <h3>Q: SASS 같은 CSS 전처리기나 React 같은 프레임워크도 쓸 수 있나요?</h3>
+        <p>EasyHTML은 기본적으로 표준 <strong>HTML5, CSS3, 그리고 Vanilla JavaScript</strong> 학습과 실습에 최적화되어 있습니다. 외부 CDN을 통해 라이브러리를
+          불러와서 사용하는 것은 가능하지만, SASS 컴파일이나 JSX 변환과 같은 고도의 빌드 기능은 현재 지원하지 않습니다. 가벼운 프로토타이핑과 웹의 기초를 다지는 용도로 활용하시기를 추천합니다.
+        </p>
+
+        <h3>Q: 작업한 코드를 다른 사람과 공유하고 싶어요.</h3>
+        <p>저희는 서버에 데이터를 저장하지 않기 때문에 별도의 '공유 링크' 기능은 제공하지 않습니다. 대신 가장 확실한 방법인 <strong>'다운로드'</strong> 기능을 활용하세요. 생성된
+          <code>.html</code> 파일을 전송하면 상대방도 어떤 브라우저에서든 결과물을 열어볼 수 있으며, 이곳 EasyHTML에 다시 업로드하여 편집을 이어갈 수도 있습니다.</p>
+
+      </article>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>&copy; 2025 EasyHTML. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
